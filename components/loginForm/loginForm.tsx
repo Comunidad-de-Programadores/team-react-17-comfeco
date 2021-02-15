@@ -42,8 +42,8 @@ const LoginForm = () => {
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">
       <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={14}>
-          <Stack spacing={4}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Stack spacing={4}>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
                   <InputLeftElement
@@ -126,20 +126,20 @@ const LoginForm = () => {
                   </NextLink>
                 </Text>
               </Stack>
-            </form>
-            <Divider />
-            <Stack spacing="20px">
-              <Text align="center" mt={6}>
-                También puedes iniciar sesión con tus redes
-              </Text>
-              <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
-                Ingresa con Facebook
-              </Button>
-              <Button colorScheme="gray" leftIcon={<FaGoogle />}>
-                Ingresa con Google
-              </Button>
+              <Divider />
+              <Stack spacing="20px">
+                <Text align="center" mt={6}>
+                  También puedes iniciar sesión con tus redes
+                </Text>
+                <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
+                  Ingresa con Facebook
+                </Button>
+                <Button colorScheme="gray" leftIcon={<FaGoogle />}>
+                  Ingresa con Google
+                </Button>
+              </Stack>
             </Stack>
-          </Stack>
+          </form>
         </Box>
       </Stack>
     </Flex>
