@@ -1,19 +1,19 @@
 import Head from "next/head";
 import { Box } from "@chakra-ui/react";
 
-import LoginForm from "@/components/loginForm";
+import SignUpForm from "@/components/signUpForm";
 
-const Home = () => {
+const SignUp = () => {
   return (
     <Box>
       <Head>
-        <title>Login | Team React #17</title>
+        <title>Registrarse | Team React #17</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <LoginForm />
+      <SignUpForm />
     </Box>
   );
 };
 
-export default Home;
+export default SignUp;

@@ -1,16 +1,16 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-export default function Login() {
+const Login = () => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Login | Team React #17</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        
-      </main>
+      <main></main>
     </div>
-  )
-}
+  );
+};
+
+export default Login;
