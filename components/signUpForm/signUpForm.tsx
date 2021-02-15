@@ -88,10 +88,10 @@ const SignUpForm = () => {
                     placeholder="Nick"
                     ref={register({ required: true })}
                   />
-                  <FormErrorMessage>
-                    {errors?.nick ? "Este campo es requerido" : ""}
-                  </FormErrorMessage>
                 </InputGroup>
+                <FormErrorMessage>
+                  {errors?.nick ? "Este campo es requerido" : ""}
+                </FormErrorMessage>
               </FormControl>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
@@ -108,12 +108,12 @@ const SignUpForm = () => {
                     })}
                     placeholder="Correo Electrónico"
                   />
-                  <FormErrorMessage>
-                    {errors?.email?.type == "pattern"
-                      ? "Correo Invalido"
-                      : "Este campo es requerido"}
-                  </FormErrorMessage>
                 </InputGroup>
+                <FormErrorMessage>
+                  {errors?.email?.type == "pattern"
+                    ? "Correo Invalido"
+                    : "Este campo es requerido"}
+                </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
                 <InputGroup>
@@ -131,12 +131,12 @@ const SignUpForm = () => {
                     })}
                     placeholder="Contraseña"
                   />
-                  <FormErrorMessage>
-                    {errors?.password?.type == "pattern"
-                      ? "La contraseña debe incluir una mayuscula, una minuscula y un numero"
-                      : "Este campo es requerido"}
-                  </FormErrorMessage>
                 </InputGroup>
+                <FormErrorMessage>
+                  {errors?.password?.type == "pattern"
+                    ? "La contraseña debe incluir una mayuscula, una minuscula y un numero"
+                    : "Este campo es requerido"}
+                </FormErrorMessage>
               </FormControl>
               <FormControl
                 id="confirmPassword"
@@ -154,12 +154,12 @@ const SignUpForm = () => {
                     ref={register({ validate: passwordsMatch, required: true })}
                     placeholder="Confirmar Contraseña"
                   />
-                  <FormErrorMessage>
-                    {errors?.confirmPassword?.type == "validate"
-                      ? "Las contraseñas no coinciden"
-                      : "Este campo es requerido"}
-                  </FormErrorMessage>
                 </InputGroup>
+                <FormErrorMessage>
+                  {errors?.confirmPassword?.type == "validate"
+                    ? "Las contraseñas no coinciden"
+                    : "Este campo es requerido"}
+                </FormErrorMessage>
               </FormControl>
               <Stack spacing={10}>
                 <Button

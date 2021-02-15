@@ -59,12 +59,12 @@ const LoginForm = () => {
                       required: true,
                     })}
                   />
-                  <FormErrorMessage>
-                    {errors?.email?.type == "pattern"
-                      ? "Correo electronico invalido"
-                      : "Este campo es requerido"}
-                  </FormErrorMessage>
                 </InputGroup>
+                <FormErrorMessage>
+                  {errors?.email?.type == "pattern"
+                    ? "Correo electronico invalido"
+                    : "Este campo es requerido"}
+                </FormErrorMessage>
               </FormControl>
               <FormControl
                 id="password"
@@ -84,10 +84,10 @@ const LoginForm = () => {
                     })}
                     placeholder="Contraseña"
                   />
-                  <FormErrorMessage>
-                    {errors?.password ? "Este campo es requerido" : ""}
-                  </FormErrorMessage>
                 </InputGroup>
+                <FormErrorMessage>
+                  {errors?.password ? "Este campo es requerido" : ""}
+                </FormErrorMessage>
               </FormControl>
               <Stack spacing={10}>
                 <Stack
