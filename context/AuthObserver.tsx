@@ -9,14 +9,6 @@ const AuthObserver: FC = ({ children }) => {
 
   useEffect(() => {
     const unsuscribe = firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        router.push("/")
-      }
-
-      if (!user) {
-        router.push("login")
-      }
-
       setUser(user)
     })
 

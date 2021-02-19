@@ -22,7 +22,6 @@ import { FaArrowLeft, FaEnvelope, FaFacebook, FaGoogle, FaLock, FaUserAlt } from
 import firebase from "../../firebaseConfig"
 
 import { useForm } from "react-hook-form"
-import { useRouter } from "next/router"
 
 type Inputs = {
   nick: string
@@ -33,18 +32,15 @@ type Inputs = {
 
 const SignUpForm = () => {
   const { register, handleSubmit, formState, errors, watch } = useForm<Inputs>()
-  const router = useRouter()
 
   const onSubmit = data => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(data.email, data.password)
-      .then(user => {
-        router.push("/")
-      })
       .catch(error => {
         const errorMessage = error.message
         const errorCode = error.code
+        console.log(errorMessage, errorCode)
       })
   }
 
@@ -57,7 +53,7 @@ const SignUpForm = () => {
       <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={14}>
           <Stack spacing={10}>
-            <NextLink href="/" passHref>
+            <NextLink href="/login" passHref>
               <Button
                 bg="gray.500"
                 color="white"

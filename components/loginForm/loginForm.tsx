@@ -23,7 +23,6 @@ import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa"
 import { useForm } from "react-hook-form"
 
 import firebase from "../../firebaseConfig"
-import { useRouter } from "next/router"
 
 type Inputs = {
   email: string
@@ -32,7 +31,7 @@ type Inputs = {
 
 const LoginForm = () => {
   const { register, handleSubmit, formState, errors } = useForm<Inputs>()
-  const router = useRouter()
+
   const onSubmit = data => {
     firebase
       .auth()
