@@ -1,33 +1,21 @@
 import ToolbarOrganism from '../Toolbar/Toolbar'
 import styled from '@emotion/styled'
 import React from 'react'
+import { Flex, HStack, Stack } from '@chakra-ui/react'
 
 type NavbarProps = {
     children: React.ReactChild
-    bgColor?: string
 }
 
-const Navbar = styled.nav<NavbarProps>`
-    width: 100%;
-    min-height: 90px;
-    background-color: ${({bgColor}) => bgColor ? bgColor : '#FFFFFF'};
-    top: 0px;
-    border-bottom: 1px #f1f1f1 solid;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 5px 5px #f1f1f1;
-`
-
 const AppBar: React.FC<NavbarProps> = ({
-    children,
-    bgColor
+    children
 }) => {
     return(
-        <Navbar bgColor={bgColor}>
-            <ToolbarOrganism>
+        <Flex w='100%'  minH='90px' bg='#FFFFFF' top='0' borderBottom='1px #f1f1f1 solid' shadow='0px 5px 5px #f1f1f1'>
+            <HStack m={['auto 5px auto 5px', 'auto 65px auto 65px']} w='100%'>
                 {children}
-            </ToolbarOrganism>
-        </Navbar>
+            </HStack>
+        </Flex>
     )
 }
 
