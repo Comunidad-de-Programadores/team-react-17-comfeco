@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import NextLink from "next/link";
 
@@ -19,6 +19,14 @@ import {
 import { FaEnvelope, FaArrowLeft } from "react-icons/fa";
 
 const RecoverPassword = () => {
+
+  const [emailValue, setEmailValue] = useState("")
+
+  const handleEmailChange = event => {
+    setEmailValue(event.target.value)
+    console.log(event.target.value)
+  }
+
   return (
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">
       <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
@@ -51,6 +59,8 @@ const RecoverPassword = () => {
                   children={<FaEnvelope color="gray.300" />}
                 />
                 <Input
+                  value={emailValue}
+                  onChange={handleEmailChange}
                   focusBorderColor="purple.500"
                   type="email"
                   placeholder="Correo Electrónico"

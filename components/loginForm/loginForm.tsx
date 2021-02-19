@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import NextLink from "next/link";
 
@@ -37,6 +37,17 @@ const LoginForm = () => {
       }, 1000);
     });
   };
+  const [emailValue, setEmailValue] = useState("")
+  const [passwordValue, setPasswordValue] = useState("")
+  
+  const handleEmailChange = event => {
+    setEmailValue(event.target.value)
+    console.log(event.target.value)
+  }
+  const handlePasswordlChange = event => {
+    setPasswordValue(event.target.value)
+    console.log(event.target.value)
+  }
 
   return (
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">
@@ -53,6 +64,8 @@ const LoginForm = () => {
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
+                    value={emailValue}
+                    onChange={handleEmailChange}
                     placeholder="Correo Electrónico"
                     ref={register({
                       pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
@@ -61,7 +74,7 @@ const LoginForm = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.email?.type == "pattern"
+                  {errors?.email?.type === "pattern"
                     ? "Correo electronico invalido"
                     : "Este campo es requerido"}
                 </FormErrorMessage>
@@ -69,6 +82,8 @@ const LoginForm = () => {
               <FormControl
                 id="password"
                 isInvalid={errors.password ? true : false}
+                value={passwordValue}
+                onChange={handlePasswordlChange}
               >
                 <InputGroup>
                   <InputLeftElement
