@@ -79,8 +79,8 @@ const SignUpForm = () => {
 
   return (
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">
-      <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
-        <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={14}>
+      <Stack w={{"sm": 350, "md":475}} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+        <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 12]}>
           <Stack spacing={10}>
             <NextLink href="/" passHref>
               <Button
