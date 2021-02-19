@@ -1,9 +1,18 @@
-import Head from "next/head";
-import { Box } from "@chakra-ui/react";
+import Head from "next/head"
+import { Box } from "@chakra-ui/react"
 
-import LoginForm from "@/components/loginForm";
+import firebase from "../firebaseConfig"
 
 const Home = () => {
+  const logOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        console.log("sesion cerrada")
+      })
+  }
+
   return (
     <Box>
       <Head>
@@ -11,9 +20,11 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <LoginForm />
-    </Box>
-  );
-};
+      <h1>Home</h1>
 
-export default Home;
+      <button onClick={logOut}>Logout</button>
+    </Box>
+  )
+}
+
+export default Home

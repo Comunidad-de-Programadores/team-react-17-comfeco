@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react"
+import authContext from "../../context/authContext"
 
-import NextLink from "next/link";
+import NextLink from "next/link"
 
 import {
   Box,
@@ -14,46 +15,42 @@ import {
   InputLeftElement,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-import {
-  FaArrowLeft,
-  FaEnvelope,
-  FaFacebook,
-  FaGoogle,
-  FaLock,
-  FaUserAlt,
-} from "react-icons/fa";
+import { FaArrowLeft, FaEnvelope, FaFacebook, FaGoogle, FaLock, FaUserAlt } from "react-icons/fa"
 
-import { useForm } from "react-hook-form";
+import firebase from "../../firebaseConfig"
+
+import { useForm } from "react-hook-form"
+import { useRouter } from "next/router"
 
 type Inputs = {
-  nick: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+  nick: string
+  email: string
+  password: string
+  confirmPassword: string
+}
 
 const SignUpForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState,
-    errors,
-    watch,
-  } = useForm<Inputs>();
-  const onSubmit = (data) => {
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        console.log(data);
-        resolve();
-      }, 1000);
-    });
-  };
+  const { register, handleSubmit, formState, errors, watch } = useForm<Inputs>()
+  const router = useRouter()
 
-  const passwordsMatch = (confirmPassValue) => {
-    return watch("password") == confirmPassValue;
-  };
+  const onSubmit = data => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .then(user => {
+        router.push("/")
+      })
+      .catch(error => {
+        const errorMessage = error.message
+        const errorCode = error.code
+      })
+  }
+
+  const passwordsMatch = confirmPassValue => {
+    return watch("password") == confirmPassValue
+  }
 
   return (
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">
@@ -89,9 +86,7 @@ const SignUpForm = () => {
                     ref={register({ required: true })}
                   />
                 </InputGroup>
-                <FormErrorMessage>
-                  {errors?.nick ? "Este campo es requerido" : ""}
-                </FormErrorMessage>
+                <FormErrorMessage>{errors?.nick ? "Este campo es requerido" : ""}</FormErrorMessage>
               </FormControl>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
@@ -110,17 +105,12 @@ const SignUpForm = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.email?.type == "pattern"
-                    ? "Correo Invalido"
-                    : "Este campo es requerido"}
+                  {errors?.email?.type == "pattern" ? "Correo Invalido" : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none" children={<FaLock color="gray.300" />} />
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -138,15 +128,9 @@ const SignUpForm = () => {
                     : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl
-                id="confirmPassword"
-                isInvalid={!!errors?.confirmPassword}
-              >
+              <FormControl id="confirmPassword" isInvalid={!!errors?.confirmPassword}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none" children={<FaLock color="gray.300" />} />
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -191,7 +175,7 @@ const SignUpForm = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default SignUpForm;
+export default SignUpForm

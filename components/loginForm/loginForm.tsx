@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import NextLink from "next/link";
+import NextLink from "next/link"
 
 import {
   Box,
@@ -16,27 +16,30 @@ import {
   Link,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa"
 
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
+
+import firebase from "../../firebaseConfig"
+import { useRouter } from "next/router"
 
 type Inputs = {
-  email: string;
-  password: string;
-};
+  email: string
+  password: string
+}
 
 const LoginForm = () => {
-  const { register, handleSubmit, formState, errors } = useForm<Inputs>();
-  const onSubmit = (data) => {
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        console.log(data);
-        resolve();
-      }, 1000);
-    });
-  };
+  const { register, handleSubmit, formState, errors } = useForm<Inputs>()
+  const router = useRouter()
+  const onSubmit = data => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(data.email, data.password)
+      .then(() => {})
+      .catch(error => console.log(error.message, error.code))
+  }
 
   return (
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">
@@ -66,15 +69,9 @@ const LoginForm = () => {
                     : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl
-                id="password"
-                isInvalid={errors.password ? true : false}
-              >
+              <FormControl id="password" isInvalid={errors.password ? true : false}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none" children={<FaLock color="gray.300" />} />
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -143,7 +140,7 @@ const LoginForm = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

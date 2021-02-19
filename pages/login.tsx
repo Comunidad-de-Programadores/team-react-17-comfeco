@@ -1,4 +1,5 @@
-import Head from "next/head";
+import Head from "next/head"
+import LoginForm from "@/components/loginForm"
 
 const Login = () => {
   return (
@@ -8,9 +9,9 @@ const Login = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main></main>
+      <LoginForm />
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
