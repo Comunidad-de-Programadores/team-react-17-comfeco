@@ -28,7 +28,7 @@ const RecoverPassword = () => {
   }
 
   return (
-    <Flex minH="100vh" align="center" justify="center" bg="gray.50">
+    <Flex minH="100vh" align="center" justify="center">
       <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 14, 14]}>
           <Stack spacing={10}>
