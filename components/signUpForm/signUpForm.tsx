@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react"
-import authContext from "../../context/authContext"
 
 import NextLink from "next/link"
 
@@ -19,7 +18,7 @@ import {
 
 import { FaArrowLeft, FaEnvelope, FaFacebook, FaGoogle, FaLock, FaUserAlt } from "react-icons/fa"
 
-import firebase from "../../firebaseConfig"
+import firebase from "@/lib/firebaseConfig"
 
 import { useForm } from "react-hook-form"
 

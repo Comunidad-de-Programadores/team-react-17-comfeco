@@ -1,4 +1,4 @@
-import firebase from "firebaseConfig"
+import firebase from "@/lib/firebaseConfig"
 import { FC, useContext, useEffect } from "react"
 import { useRouter } from "next/router"
 import authContext from "../context/authContext"

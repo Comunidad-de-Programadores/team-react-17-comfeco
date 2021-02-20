@@ -22,7 +22,7 @@ import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa"
 
 import { useForm } from "react-hook-form"
 
-import firebase from "../../firebaseConfig"
+import firebase from "@/lib/firebaseConfig"
 
 type Inputs = {
   email: string

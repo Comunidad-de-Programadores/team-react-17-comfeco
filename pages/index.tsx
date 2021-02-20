@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Box } from "@chakra-ui/react"
 
-import firebase from "../firebaseConfig"
+import firebase from "@/lib/firebaseConfig"
 import Protected from "@/components/protected"
 
 const Home = () => {

@@ -1,4 +1,3 @@
-import firebase from "../firebaseConfig"
 import { createContext, useContext, useState, Dispatch, SetStateAction } from "react"
 
 import AuthObserver from "./AuthObserver"
