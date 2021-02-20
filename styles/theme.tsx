@@ -11,6 +11,15 @@ const theme: ChakraTheme = extendTheme({
     medium: 600,
     bold: 700,
   },
+  styles: {
+    global: {
+      "html, body": {
+        backgroundColor: "#F7FAFC",
+        margin: "0px",
+        padding: "0px"
+      }
+    }
+  }
 })
 
 export default theme

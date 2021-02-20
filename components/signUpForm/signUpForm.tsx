@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 
 import NextLink from "next/link"
 
@@ -18,6 +18,8 @@ import {
 
 import { FaArrowLeft, FaEnvelope, FaFacebook, FaGoogle, FaLock, FaUserAlt } from "react-icons/fa"
 
+import firebase from "@/lib/firebaseConfig"
+
 import { useForm } from "react-hook-form"
 
 type Inputs = {
@@ -29,25 +31,41 @@ type Inputs = {
 
 const SignUpForm = () => {
   const { register, handleSubmit, formState, errors, watch } = useForm<Inputs>()
+
   const onSubmit = data => {
-    return new Promise<void>(resolve => {
-      setTimeout(() => {
-        console.log(data)
-        resolve()
-      }, 1000)
-    })
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .catch(error => {
+        const errorMessage = error.message
+        const errorCode = error.code
+        console.log(errorMessage, errorCode)
+      })
   }
 
   const passwordsMatch = confirmPassValue => {
     return watch("password") == confirmPassValue
   }
 
+  const [formValues, setFormValues] = useState({
+    nick: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const {nick, email, password, confirmPassword } = formValues;
+
+  const handleForm = (e) => {
+    setFormValues({...formValues, [e.target.name]: e.target.value});
+  }
+
   return (
-    <Flex minH="100vh" align="center" justify="center" bg="gray.50">
-      <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
-        <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={14}>
+    <Flex minH="100vh" align="center" justify="center">
+      <Stack w={{"sm": 350, "md":475}} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+        <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 12]}>
           <Stack spacing={10}>
-            <NextLink href="/" passHref>
+            <NextLink href="/login" passHref>
               <Button
                 bg="gray.500"
                 color="white"
@@ -71,6 +89,8 @@ const SignUpForm = () => {
                   <Input
                     focusBorderColor="purple.500"
                     name="nick"
+                    value={nick}
+                    onChange={handleForm}
                     placeholder="Nick"
                     ref={register({ required: true })}
                   />
@@ -85,6 +105,8 @@ const SignUpForm = () => {
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
+                    value={email}
+                    onChange={handleForm}
                     ref={register({
                       pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                       required: true,
@@ -97,7 +119,7 @@ const SignUpForm = () => {
                 </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
-                <InputGroup>
+                <InputGroup
                   <InputLeftElement pointerEvents="none">
                     <FaLock color="gray.300" />
                   </InputLeftElement>
@@ -105,6 +127,8 @@ const SignUpForm = () => {
                     focusBorderColor="purple.500"
                     type="password"
                     name="password"
+                    value={password}
+                    onChange={handleForm}
                     ref={register({
                       required: true,
                       pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
@@ -127,6 +151,8 @@ const SignUpForm = () => {
                     focusBorderColor="purple.500"
                     type="password"
                     name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={handleForm}
                     ref={register({ validate: passwordsMatch, required: true })}
                     placeholder="Confirmar Contraseña"
                   />
