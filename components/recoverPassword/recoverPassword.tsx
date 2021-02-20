@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import NextLink from "next/link";
+import NextLink from "next/link"
 
 import {
   Box,
@@ -14,9 +14,9 @@ import {
   InputLeftElement,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-import { FaEnvelope, FaArrowLeft } from "react-icons/fa";
+import { FaEnvelope, FaArrowLeft } from "react-icons/fa"
 
 const RecoverPassword = () => {
   return (
@@ -40,21 +40,21 @@ const RecoverPassword = () => {
           </Stack>
           <Divider mb={4} />
           <Stack spacing={4}>
-            <Heading as="h1" size="lg">Reasignar contraseña</Heading>
-            <Text size="md" mb={4}>Te enviaremos un correo electrónico con un enlace privado para que reasignes tu contraseña. Este enlace será válido por una hora.</Text>
+            <Heading as="h1" size="lg">
+              Reasignar contraseña
+            </Heading>
+            <Text size="md" mb={4}>
+              Te enviaremos un correo electrónico con un enlace privado para que reasignes tu contraseña. Este enlace
+              será válido por una hora.
+            </Text>
           </Stack>
           <Stack spacing={4}>
             <FormControl id="email">
               <InputGroup>
-                <InputLeftElement
-                  pointerEvents="none"
-                  children={<FaEnvelope color="gray.300" />}
-                />
-                <Input
-                  focusBorderColor="purple.500"
-                  type="email"
-                  placeholder="Correo Electrónico"
-                />
+                <InputLeftElement pointerEvents="none">
+                  <FaEnvelope color="gray.300" />
+                </InputLeftElement>
+                <Input focusBorderColor="purple.500" type="email" placeholder="Correo Electrónico" />
               </InputGroup>
             </FormControl>
             <Stack spacing={10}>
@@ -72,7 +72,7 @@ const RecoverPassword = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default RecoverPassword;
+export default RecoverPassword

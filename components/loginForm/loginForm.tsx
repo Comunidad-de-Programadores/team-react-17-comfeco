@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import NextLink from "next/link";
+import NextLink from "next/link"
 
 import {
   Box,
@@ -16,27 +16,27 @@ import {
   Link,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa"
 
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 
 type Inputs = {
-  email: string;
-  password: string;
-};
+  email: string
+  password: string
+}
 
 const LoginForm = () => {
-  const { register, handleSubmit, formState, errors } = useForm<Inputs>();
-  const onSubmit = (data) => {
-    return new Promise<void>((resolve) => {
+  const { register, handleSubmit, formState, errors } = useForm<Inputs>()
+  const onSubmit = data => {
+    return new Promise<void>(resolve => {
       setTimeout(() => {
-        console.log(data);
-        resolve();
-      }, 1000);
-    });
-  };
+        console.log(data)
+        resolve()
+      }, 1000)
+    })
+  }
 
   return (
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">
@@ -46,10 +46,9 @@ const LoginForm = () => {
             <Stack spacing={4}>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaEnvelope color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaEnvelope color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
@@ -61,20 +60,14 @@ const LoginForm = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.email?.type == "pattern"
-                    ? "Correo electronico invalido"
-                    : "Este campo es requerido"}
+                  {errors?.email?.type == "pattern" ? "Correo electronico invalido" : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl
-                id="password"
-                isInvalid={errors.password ? true : false}
-              >
+              <FormControl id="password" isInvalid={errors.password ? true : false}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaLock color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -85,16 +78,10 @@ const LoginForm = () => {
                     placeholder="Contraseña"
                   />
                 </InputGroup>
-                <FormErrorMessage>
-                  {errors?.password ? "Este campo es requerido" : ""}
-                </FormErrorMessage>
+                <FormErrorMessage>{errors?.password ? "Este campo es requerido" : ""}</FormErrorMessage>
               </FormControl>
               <Stack spacing={10}>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  align="start"
-                  justify="space-between"
-                >
+                <Stack direction={{ base: "column", sm: "row" }} align="start" justify="space-between">
                   <Checkbox colorScheme="purple" size="sm">
                     Mantenerme conectado
                   </Checkbox>
@@ -143,7 +130,7 @@ const LoginForm = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

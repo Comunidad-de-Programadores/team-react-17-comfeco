@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { Box } from "@chakra-ui/react";
+import Head from "next/head"
+import { Box } from "@chakra-ui/react"
 
-import LoginForm from "@/components/loginForm";
+import LoginForm from "@/components/loginForm"
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
 
       <LoginForm />
     </Box>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

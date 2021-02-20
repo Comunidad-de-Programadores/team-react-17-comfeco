@@ -1,10 +1,10 @@
-import { LondrinaSolidFontFace, SourceSansProFontFace } from "./fontFaces";
+import { LondrinaSolidFontFace, SourceSansProFontFace } from "./fontFaces"
 
 const Fonts = () => (
   <>
     <SourceSansProFontFace />
     <LondrinaSolidFontFace />
   </>
-);
+)
 
-export default Fonts;
+export default Fonts

@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { Box } from "@chakra-ui/react";
+import Head from "next/head"
+import { Box } from "@chakra-ui/react"
 
-import RecoverPassword from "@/components/recoverPassword";
+import RecoverPassword from "@/components/recoverPassword"
 
 const SignUp = () => {
   return (
@@ -13,7 +13,7 @@ const SignUp = () => {
 
       <RecoverPassword />
     </Box>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp

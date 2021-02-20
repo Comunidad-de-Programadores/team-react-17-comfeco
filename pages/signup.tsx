@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { Box } from "@chakra-ui/react";
+import Head from "next/head"
+import { Box } from "@chakra-ui/react"
 
-import SignUpForm from "@/components/signUpForm";
+import SignUpForm from "@/components/signUpForm"
 
 const SignUp = () => {
   return (
@@ -13,7 +13,7 @@ const SignUp = () => {
 
       <SignUpForm />
     </Box>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp
