@@ -55,26 +55,17 @@ const SignUpForm = () => {
     return watch("password") == confirmPassValue;
   };
 
-  const [nicknameValue, setNicknameValue] = useState("")
-  const [emailValue, setEmailValue] = useState("")
-  const [passwordValue, setPasswordValue] = useState("")
-  const [passConfValue, setPassConfValue] = useState("")
+  const [formValues, setFormValues] = useState({
+    nick: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const handleNickChange = event => {
-    setNicknameValue(event.target.value)
-    console.log(event.target.value)
-  }
-  const handleEmailChange = event => {
-    setEmailValue(event.target.value)
-    console.log(event.target.value)
-  }
-  const handlePasswordlChange = event => {
-    setPasswordValue(event.target.value)
-    console.log(event.target.value)
-  }
-  const handlePassConfChange = event => {
-    setPassConfValue(event.target.value)
-    console.log(event.target.value)
+  const {nick, email, password, confirmPassword } = formValues;
+
+  const handleForm = (e) => {
+    setFormValues({...formValues, [e.target.name]: e.target.value});
   }
 
   return (
@@ -107,8 +98,8 @@ const SignUpForm = () => {
                   <Input
                     focusBorderColor="purple.500"
                     name="nick"
-                    value={nicknameValue}
-                    onChange={handleNickChange}
+                    value={nick}
+                    onChange={handleForm}
                     placeholder="Nick"
                     ref={register({ required: true })}
                   />
@@ -126,8 +117,8 @@ const SignUpForm = () => {
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
-                    value={emailValue}
-                    onChange={handleEmailChange}
+                    value={email}
+                    onChange={handleForm}
                     ref={register({
                       pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                       required: true,
@@ -151,8 +142,8 @@ const SignUpForm = () => {
                     focusBorderColor="purple.500"
                     type="password"
                     name="password"
-                    value={passwordValue}
-                    onChange={handlePasswordlChange}
+                    value={password}
+                    onChange={handleForm}
                     ref={register({
                       required: true,
                       pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
@@ -179,8 +170,8 @@ const SignUpForm = () => {
                     focusBorderColor="purple.500"
                     type="password"
                     name="confirmPassword"
-                    value={passConfValue}
-                    onChange={handlePassConfChange}
+                    value={confirmPassword}
+                    onChange={handleForm}
                     ref={register({ validate: passwordsMatch, required: true })}
                     placeholder="Confirmar Contraseña"
                   />
