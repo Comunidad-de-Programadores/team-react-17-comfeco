@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Button, Spacer } from "@chakra-ui/react";
+import { Box, Button, Spacer, Text } from "@chakra-ui/react";
 
 import RecoverPassword from "@/components/recoverPassword";
 import AppBar from "@/components/navBar/AppBar";
@@ -30,7 +30,9 @@ const SignUp = () => {
                 }}
                 leftIcon={<FaArrowLeft />}
               >
-                Iniciar sesión
+                <Text isTruncated>
+                  Iniciar sesión
+                </Text>
               </Button>
             </Link>
         </>
@@ -38,10 +40,8 @@ const SignUp = () => {
 
       <RecoverPassword />
 
-      <Footer>
-        <div/>
-      </Footer>
-
+      <Footer/>
+        
     </Box>
   );
 };

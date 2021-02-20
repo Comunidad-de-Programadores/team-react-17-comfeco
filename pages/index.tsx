@@ -20,9 +20,7 @@ const Home = () => {
 
       <LoginForm />
 
-      <Footer>
-        <div/>
-      </Footer>
+      <Footer/>
     </Box>
   );
 };

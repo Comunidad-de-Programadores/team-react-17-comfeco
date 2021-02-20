@@ -20,9 +20,7 @@ const SignUp = () => {
 
       <SignUpForm />
 
-      <Footer>
-        <div/>
-      </Footer>
+      <Footer/>
 
     </Box>
   );
