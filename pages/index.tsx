@@ -4,6 +4,11 @@ import { Box } from "@chakra-ui/react"
 import firebase from "@/lib/firebaseConfig"
 import Protected from "@/components/protected"
 
+import LoginForm from "@/components/loginForm"
+import AppBar from "@/components/navBar/AppBar"
+import Footer from "@/components/Footer"
+import ComfecoLogoSVG from "@/components/navBar/Comfeco logo SVG/ComfecoLogoSVG"
+
 const Home = () => {
   const logOut = () => {
     firebase
@@ -22,9 +27,15 @@ const Home = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
+        <AppBar>
+          <ComfecoLogoSVG />
+        </AppBar>
+
         <h1>Home</h1>
 
         <button onClick={logOut}>Logout</button>
+
+        <Footer />
       </Box>
     </Protected>
   )
