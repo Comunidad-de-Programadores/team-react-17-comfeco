@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react"
 
-import NextLink from "next/link";
+import NextLink from "next/link"
 
 import {
   Box,
@@ -16,37 +16,28 @@ import {
   Link,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa"
 
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
+
+import firebase from "@/lib/firebaseConfig"
 
 type Inputs = {
-  email: string;
-  password: string;
-};
+  email: string
+  password: string
+}
 
 const LoginForm = () => {
-  const { register, handleSubmit, formState, errors } = useForm<Inputs>();
-  const onSubmit = (data) => {
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        console.log(data);
-        resolve();
-      }, 1000);
-    });
-  };
-  const [emailValue, setEmailValue] = useState("")
-  const [passwordValue, setPasswordValue] = useState("")
-  
-  const handleEmailChange = event => {
-    setEmailValue(event.target.value)
-    console.log(event.target.value)
-  }
-  const handlePasswordlChange = event => {
-    setPasswordValue(event.target.value)
-    console.log(event.target.value)
+  const { register, handleSubmit, formState, errors } = useForm<Inputs>()
+
+  const onSubmit = data => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(data.email, data.password)
+      .then(() => {})
+      .catch(error => console.log(error.message, error.code))
   }
 
   return (
@@ -64,8 +55,6 @@ const LoginForm = () => {
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
-                    value={emailValue}
-                    onChange={handleEmailChange}
                     placeholder="Correo Electrónico"
                     ref={register({
                       pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
@@ -79,17 +68,9 @@ const LoginForm = () => {
                     : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl
-                id="password"
-                isInvalid={errors.password ? true : false}
-                value={passwordValue}
-                onChange={handlePasswordlChange}
-              >
+              <FormControl id="password" isInvalid={errors.password ? true : false}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none" children={<FaLock color="gray.300" />} />
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -158,7 +139,7 @@ const LoginForm = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

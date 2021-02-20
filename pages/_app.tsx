@@ -1,17 +1,17 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import Layout from "@/components/layout";
-import Fonts from '@/styles/Fonts'
-import theme from '@/styles/theme';
+import { ChakraProvider } from "@chakra-ui/react"
+import Fonts from "@/styles/Fonts"
+import theme from "@/styles/theme"
+import { AuthContextProvider } from "../context/authContext"
 
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
-      <Layout>
+      <AuthContextProvider>
         <Component {...pageProps} />
-      </Layout>
+      </AuthContextProvider>
     </ChakraProvider>
-  );
-};
+  )
+}
 
-export default MyApp;
+export default MyApp
