@@ -1,18 +1,25 @@
 import Head from "next/head"
 import LoginForm from "@/components/loginForm"
 import Protected from "@/components/protected"
+import AppBar from "@/components/navBar/AppBar"
+import ComfecoLogoSVG from "@/components/navBar/Comfeco logo SVG"
+import Footer from "@/components/Footer"
 
 const Login = () => {
   return (
     <Protected to="/" needsAuth={false}>
-      <div>
-        <Head>
-          <title>Login | Team React #17</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+      <Head>
+        <title>Login | Team React #17</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <LoginForm />
-      </div>
+      <AppBar>
+        <ComfecoLogoSVG />
+      </AppBar>
+
+      <LoginForm />
+
+      <Footer />
     </Protected>
   )
 }

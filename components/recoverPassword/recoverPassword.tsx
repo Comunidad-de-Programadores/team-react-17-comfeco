@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 
 import NextLink from "next/link"
 
-import firebase from "@/lib/firebaseConfig"
+import firebase from "lib/firebaseConfig"
 
 import {
   Box,
@@ -51,35 +51,11 @@ const RecoverPassword = () => {
             </Heading>
             <Text size="md" mb={4}>
               Te enviaremos un correo electrónico con un enlace privado para que reasignes tu
-              contraseña. Este enlace será válido por una hora.
+              contraseña.
             </Text>
           </Stack>
           <Stack spacing={4}>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl id="email">
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaEnvelope color="gray.300" />}
-                  />
-                  <Input
-                    focusBorderColor="purple.500"
-                    type="email"
-                    placeholder="Correo Electrónico"
-                  />
-                </InputGroup>
-              </FormControl>
-              <Stack spacing={10}>
-                <Button
-                  bg="purple.500"
-                  color="white"
-                  _hover={{
-                    bg: "purple.600",
-                  }}
-                >
-                  Enviar enlace
-                </Button>
-              </Stack>
               <Stack spacing={4}>
                 <FormControl id="email" isInvalid={!!errors.email}>
                   <InputGroup>
