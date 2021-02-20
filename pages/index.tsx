@@ -9,7 +9,6 @@ import AppBar from "@/components/navBar/AppBar"
 import Footer from "@/components/Footer"
 import ComfecoLogoSVG from "@/components/navBar/Comfeco logo SVG/ComfecoLogoSVG"
 
-
 const Home = () => {
   const logOut = () => {
     firebase
@@ -39,7 +38,6 @@ const Home = () => {
         <Footer />
       </Box>
     </Protected>
-
   )
 }
 

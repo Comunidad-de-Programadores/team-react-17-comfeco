@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 import NextLink from "next/link"
 
@@ -22,28 +22,29 @@ import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa"
 
 import { useForm } from "react-hook-form"
 
-import firebase from "@/lib/firebaseConfig"
+import firebase from "lib/firebaseConfig"
 
 type Inputs = {
   email: string
   password: string
 }
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
   const { register, handleSubmit, formState, errors } = useForm<Inputs>()
 
   const onSubmit = data => {
     firebase
       .auth()
       .signInWithEmailAndPassword(data.email, data.password)
-      .then(() => {})
+      .then(() => {
+        console.log("signIn exitoso")
+      })
       .catch(error => console.log(error.message, error.code))
-
   }
 
   return (
     <Flex minH="100vh" align="center" justify="center">
-      <Stack w={{"sm": 350, "md":475}} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+      <Stack w={{ sm: 350, md: 475 }} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 12]}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Stack spacing={4}>
@@ -63,9 +64,7 @@ const LoginForm = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.email?.type === "pattern"
-                    ? "Correo electronico invalido"
-                    : "Este campo es requerido"}
+                  {errors?.email?.type === "pattern" ? "Correo electronico invalido" : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={errors.password ? true : false}>

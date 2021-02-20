@@ -1,16 +1,12 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { useForm } from "react-hook-form"
 
-import NextLink from "next/link"
-
 import firebase from "lib/firebaseConfig"
-
 
 import {
   Box,
   Button,
-  Divider,
   Flex,
   FormControl,
   Heading,
@@ -22,13 +18,13 @@ import {
   FormErrorMessage,
 } from "@chakra-ui/react"
 
-import { FaEnvelope, FaArrowLeft } from "react-icons/fa"
+import { FaEnvelope } from "react-icons/fa"
 
 type Inputs = {
   email: string
 }
 
-const RecoverPassword = () => {
+const RecoverPassword: FC = () => {
   const { register, handleSubmit, formState, errors } = useForm<Inputs>()
 
   const onSubmit = data => {
@@ -52,8 +48,7 @@ const RecoverPassword = () => {
               Reasignar contraseña
             </Heading>
             <Text size="md" mb={4}>
-              Te enviaremos un correo electrónico con un enlace privado para que reasignes tu
-              contraseña.
+              Te enviaremos un correo electrónico con un enlace privado para que reasignes tu contraseña.
             </Text>
           </Stack>
           <Stack spacing={4}>
@@ -61,10 +56,9 @@ const RecoverPassword = () => {
               <Stack spacing={4}>
                 <FormControl id="email" isInvalid={!!errors.email}>
                   <InputGroup>
-                    <InputLeftElement
-                      pointerEvents="none"
-                      children={<FaEnvelope color="gray.300" />}
-                    />
+                    <InputLeftElement pointerEvents="none">
+                      <FaEnvelope color="gray.300" />
+                    </InputLeftElement>
                     <Input
                       focusBorderColor="purple.500"
                       name="email"
@@ -76,9 +70,7 @@ const RecoverPassword = () => {
                     />
                   </InputGroup>
                   <FormErrorMessage>
-                    {errors?.email?.type == "pattern"
-                      ? "Correo electronico invalido"
-                      : "Este campo es requerido"}
+                    {errors?.email?.type == "pattern" ? "Correo electronico invalido" : "Este campo es requerido"}
                   </FormErrorMessage>
                 </FormControl>
                 <Stack spacing={10}>

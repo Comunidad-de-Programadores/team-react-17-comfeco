@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import { Box, Image, Flex, Text, Link, Stack } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, Link, Stack } from "@chakra-ui/react"
 
-import { FaFacebook, FaYoutube, FaDiscord } from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaDiscord } from "react-icons/fa"
 
 const Layout = ({ children }) => {
   return (
@@ -13,11 +13,7 @@ const Layout = ({ children }) => {
       <Box as="main">{children}</Box>
       <Box as="footer" bg="black" w="100%" p={4}>
         <Flex justify="space-between" align="center">
-          <Image
-            w="50px"
-            src="/assets/isotipo-brand.png"
-            alt="Logo Brand Comfeco"
-          />
+          <Image w="50px" src="/assets/isotipo-brand.png" alt="Logo Brand Comfeco" />
           <Text fontSize="sm" color="white">
             Copyright ©2021 Developed by Team React #17
           </Text>
@@ -35,7 +31,7 @@ const Layout = ({ children }) => {
         </Flex>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

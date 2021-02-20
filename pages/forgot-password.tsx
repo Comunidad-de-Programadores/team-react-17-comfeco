@@ -9,7 +9,6 @@ import Footer from "@/components/Footer"
 import Link from "next/link"
 import { FaArrowLeft } from "react-icons/fa"
 
-
 const SignUp = () => {
   return (
     <Box>

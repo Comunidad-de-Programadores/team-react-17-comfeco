@@ -8,7 +8,6 @@ import AppBar from "@/components/navBar/AppBar"
 import ComfecoLogoSVG from "@/components/navBar/Comfeco logo SVG/ComfecoLogoSVG"
 import Footer from "@/components/Footer"
 
-
 const SignUp = () => {
   return (
     <Protected to="/" needsAuth={false}>

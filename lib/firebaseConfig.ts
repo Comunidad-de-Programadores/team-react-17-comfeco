@@ -9,7 +9,7 @@ const config = {
   appId: "1:860744539138:web:5938c33b65d26ac66f5b1b",
 }
 
-var fire
+let fire
 
 if (!firebase.apps.length) {
   fire = firebase.initializeApp(config)

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, FC } from "react"
 
 import NextLink from "next/link"
 
@@ -18,7 +18,7 @@ import {
 
 import { FaArrowLeft, FaEnvelope, FaFacebook, FaGoogle, FaLock, FaUserAlt } from "react-icons/fa"
 
-import firebase from "@/lib/firebaseConfig"
+import firebase from "lib/firebaseConfig"
 
 import { useForm } from "react-hook-form"
 
@@ -29,7 +29,7 @@ type Inputs = {
   confirmPassword: string
 }
 
-const SignUpForm = () => {
+const SignUpForm: FC = () => {
   const { register, handleSubmit, formState, errors, watch } = useForm<Inputs>()
 
   const onSubmit = data => {
@@ -52,17 +52,17 @@ const SignUpForm = () => {
     email: "",
     password: "",
     confirmPassword: "",
-  });
+  })
 
-  const {nick, email, password, confirmPassword } = formValues;
+  const { nick, email, password, confirmPassword } = formValues
 
-  const handleForm = (e) => {
-    setFormValues({...formValues, [e.target.name]: e.target.value});
+  const handleForm = e => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
   return (
     <Flex minH="100vh" align="center" justify="center">
-      <Stack w={{"sm": 350, "md":475}} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+      <Stack w={{ sm: 350, md: 475 }} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 12]}>
           <Stack spacing={10}>
             <NextLink href="/login" passHref>
@@ -119,7 +119,7 @@ const SignUpForm = () => {
                 </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
-                <InputGroup
+                <InputGroup>
                   <InputLeftElement pointerEvents="none">
                     <FaLock color="gray.300" />
                   </InputLeftElement>
