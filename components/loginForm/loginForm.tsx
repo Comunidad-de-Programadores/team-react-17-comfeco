@@ -38,6 +38,7 @@ const LoginForm = () => {
       .signInWithEmailAndPassword(data.email, data.password)
       .then(() => {})
       .catch(error => console.log(error.message, error.code))
+
   }
 
   return (
@@ -48,10 +49,9 @@ const LoginForm = () => {
             <Stack spacing={4}>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaEnvelope color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaEnvelope color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
@@ -70,7 +70,9 @@ const LoginForm = () => {
               </FormControl>
               <FormControl id="password" isInvalid={errors.password ? true : false}>
                 <InputGroup>
-                  <InputLeftElement pointerEvents="none" children={<FaLock color="gray.300" />} />
+                  <InputLeftElement pointerEvents="none">
+                    <FaLock color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -81,16 +83,10 @@ const LoginForm = () => {
                     placeholder="Contraseña"
                   />
                 </InputGroup>
-                <FormErrorMessage>
-                  {errors?.password ? "Este campo es requerido" : ""}
-                </FormErrorMessage>
+                <FormErrorMessage>{errors?.password ? "Este campo es requerido" : ""}</FormErrorMessage>
               </FormControl>
               <Stack spacing={10}>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  align="start"
-                  justify="space-between"
-                >
+                <Stack direction={{ base: "column", sm: "row" }} align="start" justify="space-between">
                   <Checkbox colorScheme="purple" size="sm">
                     Mantenerme conectado
                   </Checkbox>

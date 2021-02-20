@@ -83,10 +83,9 @@ const SignUpForm = () => {
             <Stack spacing={4}>
               <FormControl id="user" isInvalid={!!errors?.nick}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaUserAlt color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaUserAlt color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     name="nick"
@@ -100,10 +99,9 @@ const SignUpForm = () => {
               </FormControl>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaEnvelope color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaEnvelope color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
@@ -121,8 +119,10 @@ const SignUpForm = () => {
                 </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none" children={<FaLock color="gray.300" />} />
+                <InputGroup
+                  <InputLeftElement pointerEvents="none">
+                    <FaLock color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -144,7 +144,9 @@ const SignUpForm = () => {
               </FormControl>
               <FormControl id="confirmPassword" isInvalid={!!errors?.confirmPassword}>
                 <InputGroup>
-                  <InputLeftElement pointerEvents="none" children={<FaLock color="gray.300" />} />
+                  <InputLeftElement pointerEvents="none">
+                    <FaLock color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     type="password"

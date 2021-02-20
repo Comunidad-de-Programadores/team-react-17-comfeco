@@ -1,4 +1,4 @@
-import { Global } from "@emotion/react";
+import { Global } from "@emotion/react"
 
 export const SourceSansProFontFace = () => (
   <Global
@@ -115,4 +115,4 @@ export const SourceSansProFontFace = () => (
   }
   `}
   />
-);
+)
