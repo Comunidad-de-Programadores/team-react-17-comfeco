@@ -1,6 +1,7 @@
+import { FC } from "react"
 import { LondrinaSolidFontFace, SourceSansProFontFace } from "./fontFaces"
 
-const Fonts = () => (
+const Fonts: FC = () => (
   <>
     <SourceSansProFontFace />
     <LondrinaSolidFontFace />

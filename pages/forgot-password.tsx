@@ -4,12 +4,13 @@ import { Box, Button, Spacer, Text } from "@chakra-ui/react"
 
 import RecoverPassword from "@/components/recoverPassword"
 import AppBar from "@/components/navBar/AppBar"
-import ComfecoLogoSVG from "@/components/navBar/Comfeco logo SVG/ComfecoLogoSVG"
+import ComfecoLogoSVG from "@/components/navBar/ComfecoSVG"
 import Footer from "@/components/Footer"
 import Link from "next/link"
 import { FaArrowLeft } from "react-icons/fa"
+import { FC } from "react"
 
-const SignUp = () => {
+const SignUp: FC = () => {
   return (
     <Box>
       <Head>

@@ -1,6 +1,7 @@
 import { Global } from "@emotion/react"
+import { FC } from "react"
 
-export const LondrinaSolidFontFace = () => (
+export const LondrinaSolidFontFace: FC = () => (
   <Global
     styles={`
     @font-face {

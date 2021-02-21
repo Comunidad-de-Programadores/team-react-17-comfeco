@@ -4,12 +4,12 @@ import { Box } from "@chakra-ui/react"
 import firebase from "@/lib/firebaseConfig"
 import Protected from "@/components/protected"
 
-import LoginForm from "@/components/loginForm"
 import AppBar from "@/components/navBar/AppBar"
 import Footer from "@/components/Footer"
-import ComfecoLogoSVG from "@/components/navBar/Comfeco logo SVG/ComfecoLogoSVG"
+import ComfecoLogoSVG from "@/components/navBar/ComfecoSVG"
+import { FC } from "react"
 
-const Home = () => {
+const Home: FC = () => {
   const logOut = () => {
     firebase
       .auth()

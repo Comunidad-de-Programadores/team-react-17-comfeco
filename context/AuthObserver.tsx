@@ -1,11 +1,9 @@
 import firebase from "@/lib/firebaseConfig"
 import { FC, useContext, useEffect } from "react"
-import { useRouter } from "next/router"
 import authContext from "../context/authContext"
 
 const AuthObserver: FC = ({ children }) => {
-  const [user, setUser] = useContext(authContext)
-  const router = useRouter()
+  const setUser = useContext(authContext)[1]
 
   useEffect(() => {
     const unsuscribe = firebase.auth().onAuthStateChanged(user => {

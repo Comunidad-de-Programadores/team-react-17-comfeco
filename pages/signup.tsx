@@ -5,10 +5,11 @@ import SignUpForm from "@/components/signUpForm"
 
 import Protected from "@/components/protected"
 import AppBar from "@/components/navBar/AppBar"
-import ComfecoLogoSVG from "@/components/navBar/Comfeco logo SVG/ComfecoLogoSVG"
+import ComfecoLogoSVG from "@/components/navBar/ComfecoSVG"
 import Footer from "@/components/Footer"
+import { FC } from "react"
 
-const SignUp = () => {
+const SignUp: FC = () => {
   return (
     <Protected to="/" needsAuth={false}>
       <Box>

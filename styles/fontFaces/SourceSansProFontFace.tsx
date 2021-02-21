@@ -1,6 +1,7 @@
 import { Global } from "@emotion/react"
+import { FC } from "react"
 
-export const SourceSansProFontFace = () => (
+export const SourceSansProFontFace: FC = () => (
   <Global
     styles={`
   /* source-sans-pro-200 - latin */

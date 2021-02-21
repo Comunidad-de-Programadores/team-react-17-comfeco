@@ -1,10 +1,10 @@
-import React from "react"
+import React, { FC } from "react"
 
 import { Box, Image, Flex, Text, Link, Stack } from "@chakra-ui/react"
 
 import { FaFacebook, FaYoutube, FaDiscord } from "react-icons/fa"
 
-const Layout = ({ children }) => {
+const Layout: FC = ({ children }) => {
   return (
     <>
       <Box as="header" pos="fixed" boxShadow="md" bg="white" w="100%" p={4}>

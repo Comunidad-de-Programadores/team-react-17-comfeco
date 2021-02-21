@@ -1,7 +1,5 @@
-import ToolbarOrganism from "../Toolbar/Toolbar"
-import styled from "@emotion/styled"
 import React from "react"
-import { Flex, HStack, Stack } from "@chakra-ui/react"
+import { Flex, HStack } from "@chakra-ui/react"
 
 type NavbarProps = {
   children: React.ReactChild
