@@ -10,9 +10,6 @@ type props = {
 const Protected: FC<props> = ({ needsAuth, to, children }) => {
   const [user] = useContext(authContext)
 
-  console.log(user, "a", to)
-  console.log(needsAuth && user)
-
   return <>{(needsAuth && user) || (!needsAuth && !user) ? children : <Redirect to={to} />}</>
 }
 

@@ -4,9 +4,6 @@ import { Box } from "@chakra-ui/react"
 import firebase from "@/lib/firebaseConfig"
 import Protected from "@/components/protected"
 
-import AppBar from "@/components/navBar/AppBar"
-import Footer from "@/components/Footer"
-import ComfecoLogoSVG from "@/components/navBar/ComfecoSVG"
 import { FC } from "react"
 
 const Home: FC = () => {
@@ -27,15 +24,9 @@ const Home: FC = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <AppBar>
-          <ComfecoLogoSVG />
-        </AppBar>
-
         <h1>Home</h1>
 
         <button onClick={logOut}>Logout</button>
-
-        <Footer />
       </Box>
     </Protected>
   )

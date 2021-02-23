@@ -4,13 +4,16 @@ import theme from "@/styles/theme"
 import { AuthContextProvider } from "../context/authContext"
 import { AppProps } from "next/app"
 import { FC } from "react"
+import Layout from "@/components/layout"
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
       <AuthContextProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </AuthContextProvider>
     </ChakraProvider>
   )

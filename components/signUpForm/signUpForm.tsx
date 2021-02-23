@@ -5,7 +5,6 @@ import NextLink from "next/link"
 import {
   Box,
   Button,
-  Divider,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -13,10 +12,9 @@ import {
   InputGroup,
   InputLeftElement,
   Stack,
-  Text,
 } from "@chakra-ui/react"
 
-import { FaArrowLeft, FaEnvelope, FaFacebook, FaGoogle, FaLock, FaUserAlt } from "react-icons/fa"
+import { FaArrowLeft, FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
 
 import firebase from "lib/firebaseConfig"
 
@@ -61,7 +59,7 @@ const SignUpForm: FC = () => {
   }
 
   return (
-    <Flex minH="100vh" align="center" justify="center">
+    <Flex minH="80vh" align="center" justify="center">
       <Stack w={{ sm: 350, md: 475 }} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 12]}>
           <Stack spacing={10}>
@@ -174,18 +172,6 @@ const SignUpForm: FC = () => {
                   isLoading={formState.isSubmitting}
                 >
                   Crear una cuenta
-                </Button>
-              </Stack>
-              <Divider />
-              <Stack spacing="20px">
-                <Text align="center" mt={6}>
-                  O registrate usando
-                </Text>
-                <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
-                  Ingresa con Facebook
-                </Button>
-                <Button colorScheme="gray" leftIcon={<FaGoogle />}>
-                  Ingresa con Google
                 </Button>
               </Stack>
             </Stack>
