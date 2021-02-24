@@ -42,7 +42,7 @@ const RecoverPassword: FC = () => {
   return (
     <Flex minH="80vh" align="center" justify="center">
       <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
-        <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 14, 14]}>
+        <Box rounded="xl" bg="white" boxShadow="lg" py={12} border="1px #ebebeb solid" px={[7, null, 14, 14]}>
           <Stack spacing={4}>
             <Heading as="h1" size="lg">
               Reasignar contraseña

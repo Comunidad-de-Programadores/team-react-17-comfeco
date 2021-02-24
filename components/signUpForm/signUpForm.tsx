@@ -61,7 +61,7 @@ const SignUpForm: FC = () => {
   return (
     <Flex minH="80vh" align="center" justify="center">
       <Stack w={{ sm: 350, md: 475 }} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
-        <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={[7, null, 12]}>
+        <Box rounded="xl" bg="white" boxShadow="lg" border="1px #ebebeb solid" py={12} px={[7, null, 12]}>
           <Stack spacing={10}>
             <NextLink href="/login" passHref>
               <Button
