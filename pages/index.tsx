@@ -1,21 +1,11 @@
 import Head from "next/head"
 import { Box } from "@chakra-ui/react"
 
-import firebase from "@/lib/firebaseConfig"
 import Protected from "@/components/protected"
 
 import { FC } from "react"
 
 const Home: FC = () => {
-  const logOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        console.log("sesion cerrada")
-      })
-  }
-
   return (
     <Protected to="login" needsAuth>
       <Box>
@@ -25,8 +15,6 @@ const Home: FC = () => {
         </Head>
 
         <h1>Home</h1>
-
-        <button onClick={logOut}>Logout</button>
       </Box>
     </Protected>
   )
