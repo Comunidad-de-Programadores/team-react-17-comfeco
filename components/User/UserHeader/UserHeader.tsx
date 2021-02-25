@@ -1,16 +1,5 @@
 import { ChevronDownIcon } from "@chakra-ui/icons"
-import {
-  Circle,
-  HStack,
-  Image,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuGroup,
-  MenuItem,
-  MenuList,
-  Text,
-} from "@chakra-ui/react"
+import { Avatar, HStack, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from "@chakra-ui/react"
 import firebase from "@/lib/firebaseConfig"
 import { FC } from "react"
 import { FaBars, FaDoorOpen, FaUser } from "react-icons/fa"
@@ -43,9 +32,7 @@ const UserHeader: FC<User> = ({ userName, photo }) => {
       ) : (
         <MenuButton bg="transparent" p="5px" borderBottom="1px #f1f1f1 solid">
           <HStack>
-            <Circle size="40px" border="1px #000 solid">
-              <Image src={photo} borderRadius="full" />
-            </Circle>
+            <Avatar src={photo} />
             <Text>{userName ? userName : "UserName"}</Text>
             <ChevronDownIcon />
           </HStack>
