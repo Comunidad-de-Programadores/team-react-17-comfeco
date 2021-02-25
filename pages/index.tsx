@@ -4,6 +4,7 @@ import { Box } from "@chakra-ui/react"
 import Protected from "@/components/protected"
 
 import { FC } from "react"
+import ContentCreators from "@/components/Carousel/Content Creators"
 
 const Home: FC = () => {
   return (
@@ -15,6 +16,7 @@ const Home: FC = () => {
         </Head>
 
         <h1>Home</h1>
+        <ContentCreators />
       </Box>
     </Protected>
   )
