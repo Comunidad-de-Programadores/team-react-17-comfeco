@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 
 import NextLink from "next/link"
 
@@ -15,6 +15,9 @@ import {
   Link,
   Stack,
   Text,
+  Alert,
+  AlertIcon,
+  AlertDescription,
 } from "@chakra-ui/react"
 
 import { FaEnvelope, FaLock } from "react-icons/fa"
@@ -22,6 +25,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa"
 import { useForm } from "react-hook-form"
 
 import firebase from "lib/firebaseConfig"
+import displayError from "../signUpForm/displayError"
 
 type Inputs = {
   email: string
@@ -30,15 +34,18 @@ type Inputs = {
 
 const LoginForm: FC = () => {
   const { register, handleSubmit, formState, errors } = useForm<Inputs>()
+  const [loginError, setLoginError] = useState(null)
 
   const onSubmit = data => {
     firebase
       .auth()
       .signInWithEmailAndPassword(data.email, data.password)
       .then(() => {
-        console.log("signIn exitoso")
+        console.log("login")
       })
-      .catch(error => console.log(error.message, error.code))
+      .catch(error => {
+        setLoginError(displayError(error.code))
+      })
   }
 
   return (
@@ -106,18 +113,23 @@ const LoginForm: FC = () => {
                 >
                   Ingresar
                 </Button>
-
-                <Text align="center" fontSize="sm">
-                  Aún no tienes cuenta?
-                  <NextLink href="/signup" passHref>
-                    <Link color="blue.400" ml={1}>
-                      Registrate aquí
-                    </Link>
-                  </NextLink>
-                </Text>
               </Stack>
             </Stack>
           </form>
+          <Box hidden={!!!loginError} mt={5} mb={5}>
+            <Alert status="error">
+              <AlertIcon />
+              <AlertDescription mr={2}>{loginError}</AlertDescription>
+            </Alert>
+          </Box>
+          <Text align="center" fontSize="sm">
+            Aún no tienes cuenta?
+            <NextLink href="/signup" passHref>
+              <Link color="blue.400" ml={1}>
+                Registrate aquí
+              </Link>
+            </NextLink>
+          </Text>
         </Box>
       </Stack>
     </Flex>

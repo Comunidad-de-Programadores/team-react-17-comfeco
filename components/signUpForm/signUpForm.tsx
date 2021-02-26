@@ -12,6 +12,10 @@ import {
   InputGroup,
   InputLeftElement,
   Stack,
+  Alert,
+  AlertTitle,
+  AlertIcon,
+  AlertDescription,
 } from "@chakra-ui/react"
 
 import { FaArrowLeft, FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
@@ -19,6 +23,7 @@ import { FaArrowLeft, FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
 import firebase from "lib/firebaseConfig"
 
 import { useForm } from "react-hook-form"
+import displayError from "./displayError"
 
 type Inputs = {
   nick: string
@@ -29,15 +34,15 @@ type Inputs = {
 
 const SignUpForm: FC = () => {
   const { register, handleSubmit, formState, errors, watch } = useForm<Inputs>()
+  const [signupError, setSignupError] = useState(null)
 
   const onSubmit = data => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(data.email, data.password)
       .catch(error => {
-        const errorMessage = error.message
         const errorCode = error.code
-        console.log(errorMessage, errorCode)
+        setSignupError(displayError(errorCode))
       })
   }
 
@@ -176,6 +181,12 @@ const SignUpForm: FC = () => {
               </Stack>
             </Stack>
           </form>
+          <Box hidden={!!!signupError} mt={5}>
+            <Alert status="error">
+              <AlertIcon />
+              <AlertDescription mr={2}>{signupError}</AlertDescription>
+            </Alert>
+          </Box>
         </Box>
       </Stack>
     </Flex>

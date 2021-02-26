@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 
 import { useForm } from "react-hook-form"
 
@@ -16,9 +16,13 @@ import {
   Stack,
   Text,
   FormErrorMessage,
+  Alert,
+  AlertIcon,
+  AlertDescription,
 } from "@chakra-ui/react"
 
 import { FaEnvelope } from "react-icons/fa"
+import displayError from "../signUpForm/displayError"
 
 type Inputs = {
   email: string
@@ -26,6 +30,7 @@ type Inputs = {
 
 const RecoverPassword: FC = () => {
   const { register, handleSubmit, formState, errors } = useForm<Inputs>()
+  const [recoverError, setRecoverError] = useState(null)
 
   const onSubmit = data => {
     firebase
@@ -35,7 +40,7 @@ const RecoverPassword: FC = () => {
         console.log("email enviado")
       })
       .catch(error => {
-        console.log(error.message, error.code)
+        setRecoverError(displayError(error.code))
       })
   }
 
@@ -89,6 +94,12 @@ const RecoverPassword: FC = () => {
                 </Stack>
               </Stack>
             </form>
+            <Box hidden={!!!recoverError} mt={5}>
+              <Alert status="error">
+                <AlertIcon />
+                <AlertDescription mr={2}>{recoverError}</AlertDescription>
+              </Alert>
+            </Box>
           </Stack>
         </Box>
       </Stack>
