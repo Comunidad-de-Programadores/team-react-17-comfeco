@@ -12,11 +12,20 @@ const ContentCreators: FC = () => {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 3000,
-    speed: 1000,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     initialSlide: 0,
     responsive: [
+      {
+        breakpoint: 1276,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true,
+        },
+      },
       {
         breakpoint: 1080,
         settings: {
@@ -47,7 +56,7 @@ const ContentCreators: FC = () => {
     ],
   }
   return (
-    <div style={{ width: "50%", height: "300px", margin: "auto auto" }}>
+    <div style={{ width: "60%", height: "max-content", margin: "auto auto" }}>
       <Slider {...settings}>
         {data.map((key, value) => {
           return (
