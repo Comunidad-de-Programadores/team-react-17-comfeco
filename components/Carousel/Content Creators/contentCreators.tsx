@@ -3,7 +3,8 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import data from "./data"
-import CardCreators from "./Cards"
+import CardCreators from "./CardsCreators"
+import { Box, Heading } from "@chakra-ui/react"
 
 const ContentCreators: FC = () => {
   const settings = {
@@ -29,14 +30,32 @@ const ContentCreators: FC = () => {
       {
         breakpoint: 1080,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 4,
+          slidesToScroll: 4,
           infinite: true,
           dots: true,
         },
       },
       {
-        breakpoint: 820,
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 452,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -44,19 +63,13 @@ const ContentCreators: FC = () => {
           dots: true,
         },
       },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
-      },
     ],
   }
   return (
-    <div style={{ width: "60%", height: "max-content", margin: "auto auto" }}>
+    <Box w={["100%", null, null, "60%"]} h="max-content" m="auto auto">
+      <Heading as="h1" mb="10px" fontSize="4xl" textAlign="center">
+        Ellos ya creen en esta iniciativa
+      </Heading>
       <Slider {...settings}>
         {data.map((key, value) => {
           return (
@@ -66,7 +79,7 @@ const ContentCreators: FC = () => {
           )
         })}
       </Slider>
-    </div>
+    </Box>
   )
 }
 
