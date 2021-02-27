@@ -1,4 +1,5 @@
-import { FaAngular, FaReact, FaSadCry, FaVuejs } from "react-icons/fa"
+import { FaAngular, FaReact, FaVuejs } from "react-icons/fa"
+import { SiSvelte } from "react-icons/si"
 
 const data = [
   {
@@ -94,31 +95,31 @@ const data = [
   {
     name: "Manuel Muños",
     photo: "/Assets/Content Creators/Svelte/Manuel Muños.png",
-    tech: <FaSadCry />,
+    tech: <SiSvelte />,
     color: "#F73C00",
   },
   {
     name: "Marcos Rivas",
     photo: "/Assets/Content Creators/Svelte/Marcos Rivas.jpg",
-    tech: <FaSadCry />,
+    tech: <SiSvelte />,
     color: "#F73C00",
   },
   {
     name: "Noah Kaufman",
     photo: "/Assets/Content Creators/Svelte/Noah Kaufman (Svelte Mastery).jpg",
-    tech: <FaSadCry />,
+    tech: <SiSvelte />,
     color: "#F73C00",
   },
   {
     name: "Oscar Barajas",
     photo: "/Assets/Content Creators/Svelte/Oscar Barajas.jpg",
-    tech: <FaSadCry />,
+    tech: <SiSvelte />,
     color: "#F73C00",
   },
   {
     name: "Silvestre Vivo",
     photo: "/Assets/Content Creators/Svelte/Silvestre Vivo.jpeg",
-    tech: <FaSadCry />,
+    tech: <SiSvelte />,
     color: "#F73C00",
   },
 ]
