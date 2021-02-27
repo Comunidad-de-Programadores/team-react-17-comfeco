@@ -5,6 +5,7 @@ import Protected from "@/components/protected"
 
 import { FC } from "react"
 import ContentCreators from "@/components/Carousel/Content Creators"
+import Sponsors from "@/components/Carousel/Sponsors"
 
 const Home: FC = () => {
   return (
@@ -17,6 +18,9 @@ const Home: FC = () => {
 
         <h1>Home</h1>
         <ContentCreators />
+        <br />
+        <br />
+        <Sponsors />
       </Box>
     </Protected>
   )
