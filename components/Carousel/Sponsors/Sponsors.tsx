@@ -3,9 +3,10 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { data } from "./data"
-import { Box } from "@chakra-ui/react"
+import { Box, Button, Divider, Flex, Text } from "@chakra-ui/react"
 import CardSponsors from "./CardsSponsors"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import { AiOutlineHeart } from "react-icons/ai"
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props
@@ -78,6 +79,24 @@ const Sponsors: FC = () => {
   }
   return (
     <Box w={["80%", "90%", null, "60%"]} m="auto auto">
+      <Flex alignItems="center" mt="20px">
+        <Divider m="10px" bg="#c4c4c4" h="0.5px" /> <Divider m="10px" bg="#c4c4c4" h="0.5px" />
+      </Flex>
+      <Flex alignItems="center" mb="50px" mt="50px" flexDirection={["column", null, "column"]}>
+        <Text as="b" fontSize="4xl" color="#8B1B83" m="auto auto">
+          Ellos lo han hecho posible ;)
+          <Divider h="3px" bgGradient="linear(to-br, #8B1B83, #FFB703)" />
+        </Text>
+        <Button
+          bg="#8B1B83"
+          color="white"
+          rightIcon={<AiOutlineHeart />}
+          _hover={{ bg: "#FFB703", color: "#8B1B83" }}
+          mt="40px"
+        >
+          Apoya la iniciativa
+        </Button>
+      </Flex>
       <Slider {...settings}>
         {data.map((key, value) => {
           return (
