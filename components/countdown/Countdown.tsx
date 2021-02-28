@@ -35,7 +35,7 @@ const Countdown: FC = () => {
       color="white"
       bgGradient="linear(to-r, #8B1B83, #FFB703)"
       w={["100%", "100px", "100%", "60%"]}
-      mx={["0px", null, "auto"]}
+      mx={["0px", "0px", "auto"]}
       justifyContent="center"
     >
       <Text mt="25px" fontSize="x-large" fontWeight="medium" textAlign="center">

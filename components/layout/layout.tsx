@@ -7,7 +7,7 @@ import Link from "next/link"
 import { FaFacebook, FaYoutube, FaDiscord, FaArrowLeft, FaRegBell } from "react-icons/fa"
 import { useRouter } from "next/router"
 import ComfecoLogoSVG from "../navBar/ComfecoSVG"
-import UserHeader from "../User/UserHeader"
+import UserHeader from "../User/UserHeader/index"
 import SimpleLogoSVG from "../navBar/ComfecoSVG/Simple"
 import useWindowDimensions from "hooks/useWindowDimensions"
 
@@ -20,7 +20,12 @@ const Layout: FC = ({ children }) => {
   return (
     <>
       <Flex w="100%" minH="90px" bg="#FFFFFF" top="0">
-        <HStack m={["auto 15px auto 15px", "auto 30px auto 30px", null, "auto 65px auto 65px"]} w="100%">
+        <HStack
+          m={["auto 15px auto 15px", "auto 30px auto 30px", null, "auto 65px auto 65px"]}
+          w="100%"
+          flexDirection={["column", "row"]}
+          py={["10px", null, "0px"]}
+        >
           {router.pathname === "/terms-of-use" ? null : widthScreen > 767 ? (
             <>
               {isLogged ? (
@@ -68,7 +73,7 @@ const Layout: FC = ({ children }) => {
             <>
               {isLogged ? (
                 <>
-                  <SimpleLogoSVG />
+                  <ComfecoLogoSVG />
                   <Spacer />
                   <UserHeader />
                 </>

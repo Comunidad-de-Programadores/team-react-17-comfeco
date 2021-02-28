@@ -1,17 +1,16 @@
 import { ChevronDownIcon } from "@chakra-ui/icons"
 import { Avatar, HStack, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from "@chakra-ui/react"
 import firebase from "@/lib/firebaseConfig"
-import { FC } from "react"
+import { FC, useContext } from "react"
 import { FaBars, FaDoorOpen, FaUser } from "react-icons/fa"
 import Link from "next/link"
 import useWindowDimensions from "hooks/useWindowDimensions"
+import authContext from "context/authContext"
 
-type User = {
-  userName?: string
-  photo?: string
-}
+const UserHeader: FC = () => {
+  const user: Record<string, any> = useContext(authContext)[0]
+  if (!user) return null
 
-const UserHeader: FC<User> = ({ userName, photo }) => {
   const logOut = () => {
     firebase
       .auth()
@@ -32,8 +31,8 @@ const UserHeader: FC<User> = ({ userName, photo }) => {
       ) : (
         <MenuButton bg="transparent" p="5px" borderBottom="1px #f1f1f1 solid">
           <HStack>
-            <Avatar src={photo} />
-            <Text>{userName ? userName : "UserName"}</Text>
+            <Avatar src={user.photoURL} />
+            <Text>{user.displayName ? user.displayName : "UserName"}</Text>
             <ChevronDownIcon />
           </HStack>
         </MenuButton>
