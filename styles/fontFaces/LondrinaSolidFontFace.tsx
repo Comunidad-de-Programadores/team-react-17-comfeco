@@ -1,7 +1,6 @@
-import { Global } from "@emotion/react"
-import { FC } from "react"
+import { Global } from '@emotion/react';
 
-export const LondrinaSolidFontFace: FC = () => (
+export const LondrinaSolidFontFace = () => (
   <Global
     styles={`
     @font-face {
@@ -92,5 +91,4 @@ export const LondrinaSolidFontFace: FC = () => (
           format('svg'); /* Legacy iOS */
 
     `}
-  />
-)
+  />);
