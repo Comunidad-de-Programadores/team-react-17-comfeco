@@ -1,7 +1,7 @@
 import React, { FC, useContext } from "react"
 import authContext from "context/authContext"
 
-import { Box, Flex, Text, Stack, Spacer, HStack, Button } from "@chakra-ui/react"
+import { Box, Flex, Text, Stack, Spacer, HStack, Button, Divider } from "@chakra-ui/react"
 import Link from "next/link"
 
 import { FaFacebook, FaYoutube, FaDiscord, FaArrowLeft, FaRegBell } from "react-icons/fa"
@@ -19,7 +19,7 @@ const Layout: FC = ({ children }) => {
 
   return (
     <>
-      <Flex w="100%" minH="90px" bg="#FFFFFF" top="0" borderBottom="1px #f1f1f1 solid" shadow="0px 5px 5px #f1f1f1">
+      <Flex w="100%" minH="90px" bg="#FFFFFF" top="0">
         <HStack m={["auto 15px auto 15px", "auto 30px auto 30px", null, "auto 65px auto 65px"]} w="100%">
           {widthScreen > 767 ? (
             <>
@@ -64,6 +64,7 @@ const Layout: FC = ({ children }) => {
           )}
         </HStack>
       </Flex>
+      <Divider h="5px" mb="-1px" bgGradient="linear(to-r, #8B1B83, #FFB703)" opacity="1" />
       <Box as="main" marginBottom="100px">
         {children}
       </Box>
