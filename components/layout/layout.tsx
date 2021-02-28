@@ -1,47 +1,77 @@
 import React, { FC, useContext } from "react"
 import authContext from "context/authContext"
 
-import { Box, Image, Flex, Text, Stack, Spacer, HStack } from "@chakra-ui/react"
+import { Box, Flex, Text, Stack, Spacer, HStack, Button, Divider } from "@chakra-ui/react"
 import Link from "next/link"
 
-import { FaFacebook, FaYoutube, FaDiscord } from "react-icons/fa"
+import { FaFacebook, FaYoutube, FaDiscord, FaArrowLeft, FaRegBell } from "react-icons/fa"
 import { useRouter } from "next/router"
+import ComfecoLogoSVG from "../navBar/ComfecoSVG"
 import UserHeader from "../User/UserHeader"
+import SimpleLogoSVG from "../navBar/ComfecoSVG/Simple"
+import useWindowDimensions from "hooks/useWindowDimensions"
 
 const Layout: FC = ({ children }) => {
   const isLogged = useContext(authContext)[0]
   const router = useRouter()
 
+  const widthScreen = useWindowDimensions().width
+
   return (
     <>
-      <Flex w="100%" minH="90px" bg="#FFFFFF" top="0" borderBottom="1px #f1f1f1 solid" shadow="0px 5px 5px #f1f1f1">
-        <HStack m={["auto 5px auto 5px", "auto 65px auto 65px"]} w="100%">
-          <Image w="200px" src="/assets/logo1.png" alt="Logo Comfeco" />
-          <Spacer />
-          {isLogged ? (
+      <Flex w="100%" minH="90px" bg="#FFFFFF" top="0">
+        <HStack m={["auto 15px auto 15px", "auto 30px auto 30px", null, "auto 65px auto 65px"]} w="100%">
+          {widthScreen > 767 ? (
             <>
-              <Flex w="50%">
-                <Link href="#">Inicio</Link>
-                <Spacer />
-                <Link href="#">Comunidades</Link>
-                <Spacer />
-                <Link href="#">Talleres</Link>
-                <Spacer />
-                <Link href="#">Creadores de contenido</Link>
-              </Flex>
+              <ComfecoLogoSVG />
+              <Spacer />
+              {isLogged ? (
+                <>
+                  <HStack justifyContent="center" w="full" spacing={"10%"}>
+                    <Link href="#">Inicio</Link>
+
+                    <Link href="#">Comunidades</Link>
+
+                    <Link href="#">Talleres</Link>
+
+                    <Link href="#">Creadores de contenido</Link>
+                  </HStack>
+                  <Spacer />
+                  <FaRegBell size="35px" />
+                  <UserHeader />
+                </>
+              ) : router.pathname === "/forgot-password" ? (
+                <Link href="/login">
+                  <Button
+                    leftIcon={<FaArrowLeft />}
+                    color="white"
+                    bg="gray.500"
+                    _hover={{
+                      bg: "gray.600",
+                    }}
+                  >
+                    Iniciar sesion
+                  </Button>
+                </Link>
+              ) : null}
             </>
-          ) : router.pathname === "/forgot-password" ? (
-            <Link href="/login">Iniciar sesion</Link>
-          ) : null}
+          ) : (
+            <>
+              <ComfecoLogoSVG />
+              <Spacer />
+              <UserHeader />
+            </>
+          )}
         </HStack>
       </Flex>
+      <Divider h="5px" mb="-1px" bgGradient="linear(to-r, #8B1B83, #FFB703)" opacity="1" />
       <Box as="main" marginBottom="100px">
         {children}
       </Box>
 
-      <Box as="footer" bg="black" w="100%" p={4} position="fixed" bottom="0" marginTop="100px">
+      <Box as="footer" bg="black" w="100%" p={4} bottom="0" marginTop="100px">
         <Flex justify="space-between" align="center">
-          <Image w="50px" src="/assets/isotipo-brand.png" alt="Logo Brand Comfeco" />
+          <SimpleLogoSVG />
           <Text fontSize="sm" color="white">
             Copyright ©2021 Developed by Team React #17
           </Text>

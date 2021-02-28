@@ -4,7 +4,7 @@ import React, { FC } from "react"
 
 const Footer: FC = () => {
   return (
-    <Flex mt="70px" bottom="0px" minH="100px" bg="#6b46c1" color="white">
+    <Flex mt="0px" bottom="0px" minH="100px" bg="#6b46c1" color="white">
       <Stack direction={["column", "row"]} w="100%" m="auto 30px auto 30px">
         <Text>@Copyright 2021</Text>
         <Spacer />
