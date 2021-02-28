@@ -1,8 +1,13 @@
 import { FC } from "react"
 
-const SimpleLogoSVG: FC = () => {
+type SimpleLogo = {
+  w?: string
+  h?: string
+}
+
+const SimpleLogoSVG: FC<SimpleLogo> = ({ w, h }) => {
   return (
-    <svg width="55" height="55" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={w ? w : "55"} height={h ? h : "55"} viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M31.391 23.1732L31.3228 30.8163L35.0761 33.1366V28.7008L47.0186 36.4805V40.0291L34.9396 47.604V43.9189L31.1863 46.1709L31.118 53.8141L50.7719 41.5304V35.798L31.391 23.1732Z"
         fill="url(#paint0_linear)"
