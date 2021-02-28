@@ -66,8 +66,8 @@ const ContentCreators: FC = () => {
     ],
   }
   return (
-    <Box w={["100%", null, null, "60%"]} h="max-content" m="auto auto">
-      <Heading as="h1" mb="10px" fontSize="4xl" textAlign="center">
+    <Box w={["100%", null, null, "60%"]} h="max-content" m="auto auto" mt="100px">
+      <Heading as="h1" mb="70px" fontSize="4xl" textAlign="center">
         Ellos ya creen en esta iniciativa
       </Heading>
       <Slider {...settings}>

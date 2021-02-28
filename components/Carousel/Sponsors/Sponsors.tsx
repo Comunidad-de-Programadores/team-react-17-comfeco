@@ -78,14 +78,14 @@ const Sponsors: FC = () => {
     ],
   }
   return (
-    <Box w={["80%", "90%", null, "60%"]} m="auto auto">
+    <Box w={["80%", "90%", null, "60%"]} m="auto auto" mt="90px">
       <Flex alignItems="center" mt="20px">
-        <Divider m="10px" bg="#c4c4c4" h="0.5px" /> <Divider m="10px" bg="#c4c4c4" h="0.5px" />
+        <Divider m="10px" bg="#d4d4d4" h="1px" /> <Divider m="10px" bg="#d4d4d4" h="1px" />
       </Flex>
       <Flex alignItems="center" mb="50px" mt="50px" flexDirection={["column", null, "column"]}>
-        <Text as="b" fontSize="4xl" color="#8B1B83" m="auto auto">
+        <Text as="b" fontSize="4xl" color="#8B1B83" textAlign="center">
           Ellos lo han hecho posible ;)
-          <Divider h="3px" bgGradient="linear(to-br, #8B1B83, #FFB703)" />
+          <Divider h="3px" bgGradient="linear(to-r, #8B1B83, #FFB703)" opacity="1" />
         </Text>
         <Button
           bg="#8B1B83"
