@@ -12,7 +12,7 @@ const Redirect: FC<props> = ({ to }) => {
     router.push(to)
   }, [])
 
-  return <h1 style={{ fontSize: "50px" }}>Loading...</h1>
+  return null
 }
 
 export default Redirect
