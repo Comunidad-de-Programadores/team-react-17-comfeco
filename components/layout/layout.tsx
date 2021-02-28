@@ -23,10 +23,10 @@ const Layout: FC = ({ children }) => {
         <HStack m={["auto 15px auto 15px", "auto 30px auto 30px", null, "auto 65px auto 65px"]} w="100%">
           {router.pathname === "/terms-of-use" ? null : widthScreen > 767 ? (
             <>
-              <ComfecoLogoSVG />
-              <Spacer />
               {isLogged ? (
                 <>
+                  <ComfecoLogoSVG />
+                  <Spacer />
                   <HStack justifyContent="center" w="full" spacing={"10%"}>
                     <Link href="#">Inicio</Link>
 
@@ -41,25 +41,43 @@ const Layout: FC = ({ children }) => {
                   <UserHeader />
                 </>
               ) : router.pathname === "/forgot-password" || router.pathname === "/signup" ? (
-                <Link href="/login">
-                  <Button
-                    leftIcon={<FaArrowLeft />}
-                    color="white"
-                    bg="gray.500"
-                    _hover={{
-                      bg: "gray.600",
-                    }}
-                  >
-                    Iniciar sesion
-                  </Button>
-                </Link>
-              ) : null}
+                <>
+                  <ComfecoLogoSVG />
+                  <Spacer />
+                  <Link href="/login">
+                    <Button
+                      leftIcon={<FaArrowLeft />}
+                      color="white"
+                      bg="gray.500"
+                      _hover={{
+                        bg: "gray.600",
+                      }}
+                    >
+                      Iniciar sesion
+                    </Button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <ComfecoLogoSVG />
+                  <Spacer />
+                </>
+              )}
             </>
           ) : (
             <>
-              <ComfecoLogoSVG />
-              <Spacer />
-              <UserHeader />
+              {isLogged ? (
+                <>
+                  <SimpleLogoSVG />
+                  <Spacer />
+                  <UserHeader />
+                </>
+              ) : (
+                <>
+                  <ComfecoLogoSVG />
+                  <Spacer />
+                </>
+              )}
             </>
           )}
         </HStack>

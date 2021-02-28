@@ -6,15 +6,17 @@ import SimpleLogoSVG from "../navBar/ComfecoSVG/Simple"
 
 const HomepageHead: FC = () => {
   return (
-    <Flex h={["100vh", "87vh"]} flexDirection={["column", "row"]}>
+    <Flex h={["max-content", null, null, "87vh"]} flexDirection={["column", "row"]} pb="30px">
       <Box
         color="white"
         w={["100vw", "50vw"]}
         bgImage="url(/assets/pexels-ovan-57690.jpg)"
         bgPosition="top"
         bgRepeat="no-repeat"
+        pt="50px"
+        pb="50px"
       >
-        <Text pt="100px" w={["100vw", "50vw"]} fontSize="60px" fontWeight="normal" textAlign="center">
+        <Text w={["100vw", "50vw"]} fontSize="60px" fontWeight="normal" textAlign="center">
           Bienvenidos a Community Fest and Code
         </Text>
 
