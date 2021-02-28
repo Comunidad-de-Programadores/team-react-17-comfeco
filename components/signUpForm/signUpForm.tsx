@@ -11,12 +11,11 @@ import {
   InputLeftElement,
   Stack,
   Alert,
-  AlertTitle,
   AlertIcon,
   AlertDescription,
 } from "@chakra-ui/react"
 
-import { FaArrowLeft, FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
+import { FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
 
 import firebase from "lib/firebaseConfig"
 
