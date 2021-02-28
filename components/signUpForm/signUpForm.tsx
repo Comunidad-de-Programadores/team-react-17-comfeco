@@ -1,7 +1,5 @@
 import React, { useState, FC } from "react"
 
-import NextLink from "next/link"
-
 import {
   Box,
   Button,
@@ -62,21 +60,6 @@ const SignUpForm: FC = () => {
     <Flex minH="80vh" align="center" justify="center">
       <Stack w={{ sm: 350, md: 475 }} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" border="1px #ebebeb solid" py={12} px={[7, null, 12]}>
-          <Stack spacing={10}>
-            <NextLink href="/login" passHref>
-              <Button
-                bg="gray.500"
-                color="white"
-                _hover={{
-                  bg: "gray.600",
-                }}
-                mb={6}
-                leftIcon={<FaArrowLeft />}
-              >
-                Volver a iniciar sesión
-              </Button>
-            </NextLink>
-          </Stack>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Stack spacing={4}>
               <FormControl id="user" isInvalid={!!errors?.nick}>

@@ -40,7 +40,7 @@ const Layout: FC = ({ children }) => {
                   <FaRegBell size="35px" />
                   <UserHeader />
                 </>
-              ) : router.pathname === "/forgot-password" ? (
+              ) : router.pathname === "/forgot-password" || router.pathname === "/signup" ? (
                 <Link href="/login">
                   <Button
                     leftIcon={<FaArrowLeft />}
