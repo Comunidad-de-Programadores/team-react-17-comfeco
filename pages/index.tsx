@@ -19,12 +19,8 @@ const Home: FC = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <HomepageHead />
-        <br />
         <ContentCreators />
-        <br />
-        <br />
         <Sponsors />
-        <br />
         <Countdown />
       </Box>
     </Protected>
