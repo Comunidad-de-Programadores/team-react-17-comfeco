@@ -17,6 +17,7 @@ const ContentCreators: FC = () => {
     slidesToShow: 5,
     slidesToScroll: 5,
     initialSlide: 0,
+    pauseOnHover: false,
     responsive: [
       {
         breakpoint: 1276,
@@ -66,7 +67,7 @@ const ContentCreators: FC = () => {
     ],
   }
   return (
-    <Box w={["100%", null, null, "60%"]} h="max-content" m="auto auto" mt="100px">
+    <Box w={["100%", null, null, "100%"]} h="max-content" m="auto auto" mt="100px">
       <Heading as="h1" mb="70px" fontSize="4xl" textAlign="center">
         Ellos ya creen en esta iniciativa
       </Heading>

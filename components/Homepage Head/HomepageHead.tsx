@@ -6,7 +6,7 @@ import SimpleLogoSVG from "../navBar/ComfecoSVG/Simple"
 
 const HomepageHead: FC = () => {
   return (
-    <Flex h={["max-content", null, null, "87vh"]} flexDirection={["column", "row"]} pb="30px">
+    <Flex h="max-content" flexDirection={["column", "row"]} pb="30px">
       <Box
         color="white"
         w={["100vw", "50vw"]}
@@ -32,10 +32,10 @@ const HomepageHead: FC = () => {
         </Text>
       </Box>
       <Box w={["100vw", "50vw"]}>
-        <Flex justifyContent="center" mt="30px">
+        <Flex justifyContent="center" mt="50px" mb="50px">
           <SimpleLogoSVG w="50%" h="50%" />
         </Flex>
-        <Flex px="50px" mt="50px">
+        <Flex px="50px">
           <FaAngular size="100px" color="#BD002E" />
           <Spacer />
           <FaReact size="100px" color="#50BBD7" />
