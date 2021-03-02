@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Spacer } from "@chakra-ui/react"
 import { FC, MouseEventHandler } from "react"
+import BadgeBanner from "./BadgeBanner"
 import UserProfile from "./UserProfile"
 
 type MyProfileProps = {
@@ -10,10 +11,10 @@ type MyProfileProps = {
 const MyProfile: FC<MyProfileProps> = ({ onClickButtonToChange, valueToChange }) => {
   return (
     <Box>
-      <Flex>
+      <Flex flexDirection={["column", "row"]}>
         <UserProfile />
         <Spacer />
-        <Box></Box>
+        <BadgeBanner />
         <Spacer />
         <Box></Box>
       </Flex>

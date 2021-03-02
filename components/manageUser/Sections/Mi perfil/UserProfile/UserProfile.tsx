@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Text } from "@chakra-ui/react"
+import { Avatar, Button, Flex, Text } from "@chakra-ui/react"
 import { FC } from "react"
 
 const UserProfile: FC = () => {
@@ -12,6 +12,11 @@ const UserProfile: FC = () => {
       border="1px #d4d4d4 solid"
       w={["100%", null, "50%", "25%"]}
       textAlign="center"
+      boxShadow="md"
+      _hover={{
+        shadow: "3px 3px 15px gray",
+      }}
+      transition="all 0.6s"
     >
       <Avatar boxSize="150px" />
       <Text as="b" mt="10px">
