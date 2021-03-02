@@ -55,7 +55,9 @@ const UserHeader: FC = () => {
         </MenuGroup>
         <MenuDivider d={["block", null, "none"]} />
         <MenuGroup title="User" d={["block", null, "none"]}>
-          <MenuItem icon={<FaUser />}>Manage User</MenuItem>
+          <Link href="/manage-user">
+            <MenuItem icon={<FaUser />}>Manage User</MenuItem>
+          </Link>
           <MenuItem onClick={logOut} icon={<FaDoorOpen />}>
             Logout
           </MenuItem>

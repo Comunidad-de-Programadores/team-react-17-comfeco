@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Box, Divider, Flex } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 
 import Protected from "@/components/protected"
 
