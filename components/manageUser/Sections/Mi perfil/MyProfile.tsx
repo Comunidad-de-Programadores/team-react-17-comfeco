@@ -1,5 +1,6 @@
-import { Box, Button } from "@chakra-ui/react"
+import { Box, Button, Flex, Spacer } from "@chakra-ui/react"
 import { FC, MouseEventHandler } from "react"
+import UserProfile from "./UserProfile"
 
 type MyProfileProps = {
   onClickButtonToChange: MouseEventHandler
@@ -9,9 +10,13 @@ type MyProfileProps = {
 const MyProfile: FC<MyProfileProps> = ({ onClickButtonToChange, valueToChange }) => {
   return (
     <Box>
-      <Button value={valueToChange} onClick={onClickButtonToChange}>
-        Ver mas
-      </Button>
+      <Flex>
+        <UserProfile />
+        <Spacer />
+        <Box></Box>
+        <Spacer />
+        <Box></Box>
+      </Flex>
     </Box>
   )
 }
