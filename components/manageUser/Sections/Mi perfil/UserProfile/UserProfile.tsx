@@ -1,7 +1,11 @@
-import { Avatar, Button, Flex, Text } from "@chakra-ui/react"
+import { Avatar, Button, Flex, Spacer, Text, useDisclosure } from "@chakra-ui/react"
+import Link from "next/link"
 import { FC } from "react"
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa"
+import EditProfile from "../EditUserDatas"
 
 const UserProfile: FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Flex
       flexDirection="column"
@@ -25,12 +29,29 @@ const UserProfile: FC = () => {
       <Text color="gray.500">Aria</Text>
       <Text mt="10px">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
+        magna aliqua. Ut enim ad minim
       </Text>
-      <Button w="100%" mt="15px">
+      <Flex my="20px" w="80%">
+        <Link as="button" href="https://facebook.com">
+          <FaFacebook size="40px" />
+        </Link>
+        <Spacer />
+        <Link href="https://github.com">
+          <FaGithub size="40px" />
+        </Link>
+        <Spacer />
+        <Link href="https://linkedin.com">
+          <FaLinkedin size="40px" />
+        </Link>
+        <Spacer />
+        <Link href="https://twitter.com">
+          <FaTwitter size="40px" />
+        </Link>
+      </Flex>
+      <Button onClick={onOpen} w="100%">
         Editar perfil
       </Button>
+      <EditProfile isOpenProp={isOpen} onCloseProp={onClose} />
     </Flex>
   )
 }
