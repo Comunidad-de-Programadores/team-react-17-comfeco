@@ -4,7 +4,7 @@ import { FC } from "react"
 const BadgeBanner: FC = () => {
   return (
     <Box
-      w={["100%", null, "58%", "50%"]}
+      w={["100%", "60%", "58%", "50%"]}
       p="7px"
       h="max-content"
       border={["none", "1px #d4d4d4 solid"]}

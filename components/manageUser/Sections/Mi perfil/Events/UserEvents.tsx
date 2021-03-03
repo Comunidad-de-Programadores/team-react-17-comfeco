@@ -14,7 +14,7 @@ const UserEvents: FC<UserEventsProps> = ({ onClickToEvents, valueToUse }) => {
       borderTop="3px #c4c4c4 solid"
       borderBottom="3px #c4c4c4 solid"
       borderRadius="10px"
-      w={["100%", null, "38%", "23%"]}
+      w={["100%", "38%", "38%", "23%"]}
       p="15px"
       h="max-content"
       maxH="500px"
