@@ -4,25 +4,28 @@ import { FC } from "react"
 const BadgeBanner: FC = () => {
   return (
     <Box
-      w={["100%", null, "40%", "50%"]}
-      p="15px"
-      boxShadow="xl"
+      w={["100%", null, "58%", "50%"]}
+      p="7px"
       h="max-content"
       border={["none", "1px #d4d4d4 solid"]}
       mt={["15px", "0px"]}
+      borderRadius="10px"
+      bgGradient="linear(to-r, #8B1B83, #FFB703)"
     >
-      <Heading fontSize="1.8rem" textAlign="center" mb="15px" bgGradient="linear(to-r, #8B1B83, #FFB703)" bgClip="text">
+      <Heading fontSize="1.8rem" textAlign="center" mb="15px" color="white">
         Insignias
       </Heading>
-      <Flex px={["7%", null, "0px", "12%"]} pb="10px">
-        <Avatar boxSize="70px" />
-        <Spacer />
-        <Avatar boxSize="70px" />
-        <Spacer />
-        <Avatar boxSize="70px" />
-        <Spacer />
-        <Avatar boxSize="70px" />
-      </Flex>
+      <Box border="1px black solid" bg="white" borderRadius="10px" boxShadow="xl">
+        <Flex px={["2%", null, "0px", "12%"]} py="15px">
+          <Avatar boxSize={["60px", "70px"]} />
+          <Spacer />
+          <Avatar boxSize={["60px", "70px"]} />
+          <Spacer />
+          <Avatar boxSize={["60px", "70px"]} />
+          <Spacer />
+          <Avatar boxSize={["60px", "70px"]} />
+        </Flex>
+      </Box>
     </Box>
   )
 }

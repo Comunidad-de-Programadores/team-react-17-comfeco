@@ -10,7 +10,7 @@ const UserProfile: FC = () => {
       p="15px"
       borderRadius="10px"
       border="1px #d4d4d4 solid"
-      w={["100%", null, "50%", "25%"]}
+      w={["100%", null, "38%", "23%"]}
       textAlign="center"
       boxShadow="md"
       _hover={{
@@ -18,7 +18,7 @@ const UserProfile: FC = () => {
       }}
       transition="all 0.6s"
     >
-      <Avatar boxSize="150px" />
+      <Avatar boxSize="140px" />
       <Text as="b" mt="10px">
         Nickname
       </Text>

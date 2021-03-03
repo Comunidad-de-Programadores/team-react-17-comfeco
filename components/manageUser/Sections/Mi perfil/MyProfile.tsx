@@ -1,6 +1,8 @@
-import { Box, Button, Flex, Spacer } from "@chakra-ui/react"
+import { Box, Flex, Spacer } from "@chakra-ui/react"
+import useWindowDimensions from "hooks/useWindowDimensions"
 import { FC, MouseEventHandler } from "react"
 import BadgeBanner from "./BadgeBanner"
+import UserEvents from "./Events"
 import UserProfile from "./UserProfile"
 
 type MyProfileProps = {
@@ -9,15 +11,28 @@ type MyProfileProps = {
 }
 
 const MyProfile: FC<MyProfileProps> = ({ onClickButtonToChange, valueToChange }) => {
+  const widthScreen = useWindowDimensions().width
   return (
     <Box>
-      <Flex flexDirection={["column", "row"]}>
-        <UserProfile />
-        <Spacer />
-        <BadgeBanner />
-        <Spacer />
-        <Box></Box>
-      </Flex>
+      {widthScreen > 768 ? (
+        <Flex flexDirection={["column", "row"]}>
+          <UserProfile />
+          <Spacer />
+          <BadgeBanner />
+          <Spacer />
+          <UserEvents onClickToEvents={onClickButtonToChange} valueToUse={valueToChange} />
+        </Flex>
+      ) : (
+        <>
+          <Flex flexDirection={["column", "row"]}>
+            <UserProfile />
+            <Spacer />
+            <BadgeBanner />
+            <Spacer />
+          </Flex>
+          <UserEvents onClickToEvents={onClickButtonToChange} valueToUse={valueToChange} />
+        </>
+      )}
     </Box>
   )
 }
