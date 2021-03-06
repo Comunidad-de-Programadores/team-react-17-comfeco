@@ -17,7 +17,7 @@ import {
 
 import { FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
 
-import firebase from "lib/firebaseConfig"
+import { auth, db } from "lib/firebaseConfig"
 
 import { useForm } from "react-hook-form"
 import displayError from "./displayError"
@@ -33,10 +33,30 @@ const SignUpForm: FC = () => {
   const { register, handleSubmit, formState, errors, watch } = useForm<Inputs>()
   const [signupError, setSignupError] = useState(null)
 
+  const createUser = nick => {
+    return db
+      .collection("users")
+      .doc(nick.uid)
+      .set(nick)
+      .then(() => {
+        console.log("Succes")
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   const onSubmit = data => {
-    firebase
-      .auth()
+    auth
       .createUserWithEmailAndPassword(data.email, data.password)
+      .then(() => {
+        db.collection("users")
+          .doc(data)
+          .set(data)
+          .then(() => {
+            console.log("ddone")
+          })
+      })
       .catch(error => {
         const errorCode = error.code
         setSignupError(displayError(errorCode))
@@ -44,7 +64,7 @@ const SignUpForm: FC = () => {
   }
 
   const passwordsMatch = confirmPassValue => {
-    return watch("password") == confirmPassValue
+    return watch("password") === confirmPassValue
   }
 
   const [formValues, setFormValues] = useState({
@@ -100,7 +120,7 @@ const SignUpForm: FC = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.email?.type == "pattern" ? "Correo Invalido" : "Este campo es requerido"}
+                  {errors?.email?.type === "pattern" ? "Correo Invalido" : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
@@ -122,7 +142,7 @@ const SignUpForm: FC = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.password?.type == "pattern"
+                  {errors?.password?.type === "pattern"
                     ? "La contraseña debe incluir una mayuscula, una minuscula y un numero"
                     : "Este campo es requerido"}
                 </FormErrorMessage>
@@ -143,7 +163,7 @@ const SignUpForm: FC = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.confirmPassword?.type == "validate"
+                  {errors?.confirmPassword?.type === "validate"
                     ? "Las contraseñas no coinciden"
                     : "Este campo es requerido"}
                 </FormErrorMessage>
