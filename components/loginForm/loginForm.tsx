@@ -24,7 +24,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa"
 
 import { useForm } from "react-hook-form"
 
-import firebase from "lib/firebaseConfig"
+import { auth } from "lib/firebaseConfig"
 import displayError from "../signUpForm/displayError"
 
 type Inputs = {
@@ -37,8 +37,7 @@ const LoginForm: FC = () => {
   const [loginError, setLoginError] = useState(null)
 
   const onSubmit = data => {
-    firebase
-      .auth()
+    auth
       .signInWithEmailAndPassword(data.email, data.password)
       .then(() => {
         console.log("login")

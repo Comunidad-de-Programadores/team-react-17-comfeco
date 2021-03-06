@@ -1,5 +1,4 @@
-import React, { FC, useContext } from "react"
-import authContext from "context/authContext"
+import React, { FC } from "react"
 
 import { Box, Flex, Text, Stack, Spacer, HStack, Button, Divider } from "@chakra-ui/react"
 import Link from "next/link"
@@ -12,7 +11,6 @@ import SimpleLogoSVG from "../navBar/ComfecoSVG/Simple"
 import useWindowDimensions from "hooks/useWindowDimensions"
 
 const Layout: FC = ({ children }) => {
-  const isLogged = useContext(authContext)[0]
   const router = useRouter()
 
   const widthScreen = useWindowDimensions().width
@@ -28,7 +26,7 @@ const Layout: FC = ({ children }) => {
         >
           {router.pathname === "/terms-of-use" ? null : widthScreen > 767 ? (
             <>
-              {isLogged ? (
+              {1 > 5 ? (
                 <>
                   <ComfecoLogoSVG />
                   <Spacer />
@@ -71,7 +69,7 @@ const Layout: FC = ({ children }) => {
             </>
           ) : (
             <>
-              {isLogged ? (
+              {1 > 5 ? (
                 <>
                   <ComfecoLogoSVG />
                   <Spacer />
