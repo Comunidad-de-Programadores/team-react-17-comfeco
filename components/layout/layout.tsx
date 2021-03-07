@@ -33,7 +33,7 @@ const Layout: FC = ({ children }) => {
                   <ComfecoLogoSVG />
                   <Spacer />
                   <HStack justifyContent="center" w="full" spacing={"10%"}>
-                    <Link href="#">Inicio</Link>
+                    <Link href="/">Inicio</Link>
 
                     <Link href="#">Comunidades</Link>
 
