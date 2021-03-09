@@ -6,6 +6,7 @@ const MyGroup: FC = () => {
   return (
     <Box
       w={["90vw", "400px"]}
+      minW={["90vw", "350px"]}
       h="max-content"
       border="1px #7c7c7c solid"
       borderRadius="10px"
