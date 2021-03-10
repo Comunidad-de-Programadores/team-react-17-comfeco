@@ -9,7 +9,7 @@ const Groups: FC = () => {
   const [serachGroup, setSearchGroup] = useState("")
 
   let groupsToShow = data
-  const [language, setLanguages] = useState(groupsToShow)
+  const [dataToShow, setLanguages] = useState(groupsToShow)
 
   const handleChangeFilter = event => {
     setFilter(event.target.value)
@@ -54,7 +54,7 @@ const Groups: FC = () => {
         </FormControl>
       </Flex>
       <Wrap w="100%" spacing="20px">
-        {language.map((key, value) => (
+        {dataToShow.map((key, value) => (
           <WrapItem key={value}>
             <Group img={key.img} language={key.language} groupName={key.name} description={key.description} />
           </WrapItem>
