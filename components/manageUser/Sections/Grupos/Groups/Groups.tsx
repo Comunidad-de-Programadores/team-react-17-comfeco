@@ -53,9 +53,9 @@ const Groups: FC = () => {
           />
         </FormControl>
       </Flex>
-      <Wrap w="100%" spacing="20px">
+      <Wrap w="100%" spacing="0px">
         {dataToShow.map((key, value) => (
-          <WrapItem key={value}>
+          <WrapItem key={value} mx="auto">
             <Group img={key.img} language={key.language} groupName={key.name} description={key.description} />
           </WrapItem>
         ))}
