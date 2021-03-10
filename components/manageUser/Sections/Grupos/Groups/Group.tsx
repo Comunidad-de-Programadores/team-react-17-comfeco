@@ -13,15 +13,14 @@ const Group: FC<GroupProps> = ({ img, language, groupName, description }) => {
     <Box
       p="5px"
       bgGradient="linear(to-r, #8B1B83, #FFB703)"
-      border="1px black solid"
       borderBottomRightRadius="10px"
       borderBottomLeftRadius="10px"
       mt="30px"
+      boxShadow="xl"
     >
       <Box
-        w={["100%", "310px"]}
+        w={["100%", "310px", null, "270px", "310px"]}
         h="400px"
-        border="1px #888 solid"
         borderBottomLeftRadius="10px"
         borderBottomRightRadius="10px"
         bgColor="#F7FAFC"
