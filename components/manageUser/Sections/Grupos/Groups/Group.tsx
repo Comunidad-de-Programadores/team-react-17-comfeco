@@ -12,7 +12,7 @@ const Group: FC<GroupProps> = ({ img, language, groupName, description }) => {
   return (
     <Box
       w={["100%", "310px", null, "270px", "310px"]}
-      h="500px"
+      h={["550px", "500px", null, "550px", "500px"]}
       bgColor="#F7FAFC"
       mt="30px"
       shadow="1px 1px 10px #7c7c7c"
