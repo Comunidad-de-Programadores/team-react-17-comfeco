@@ -11,36 +11,30 @@ type GroupProps = {
 const Group: FC<GroupProps> = ({ img, language, groupName, description }) => {
   return (
     <Box
-      p="5px"
-      bgGradient="linear(to-r, #8B1B83, #FFB703)"
-      borderBottomRightRadius="10px"
-      borderBottomLeftRadius="10px"
+      w={["100%", "310px", null, "270px", "310px"]}
+      h="500px"
+      bgColor="#F7FAFC"
       mt="30px"
-      boxShadow="xl"
+      shadow="1px 1px 10px #7c7c7c"
     >
-      <Box
-        w={["100%", "310px", null, "270px", "310px"]}
-        h="400px"
-        borderBottomLeftRadius="10px"
+      <Image src={img} w="100%" h="55%" />
+      <Text
+        w="max-content"
+        p="3px 15px"
+        mt="10px"
+        bgColor={language === "Typescript" ? "#2F74C0" : "#efd81d"}
+        color="white"
+        borderTopRightRadius="10px"
         borderBottomRightRadius="10px"
-        bgColor="#F7FAFC"
       >
-        <Image src={img} />
-        <Text
-          w="max-content"
-          p="3px 15px"
-          bgColor={language === "Typescript" ? "#2F74C0" : "#efd81d"}
-          color="white"
-          borderTopRightRadius="10px"
-          borderBottomRightRadius="10px"
-        >
-          {language}
-        </Text>
+        {language}
+      </Text>
+      <Box px="10px">
         <Text as="b" fontSize="2rem">
           {groupName}
         </Text>
         <Text>{description}</Text>
-        <Flex justifyContent="center">
+        <Flex justifyContent="center" mt="10px">
           <Button w="90%">Unirme</Button>
         </Flex>
       </Box>
