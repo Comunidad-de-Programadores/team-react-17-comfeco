@@ -2,6 +2,7 @@ import { Spacer, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-u
 import { FC, useState } from "react"
 import { HiBadgeCheck, HiUser, HiUserGroup } from "react-icons/hi"
 import { RiCalendarEventFill } from "react-icons/ri"
+import Events from "../Sections/Eventos"
 import MyProfile from "../Sections/Mi perfil"
 
 const SubMenu: FC = () => {
@@ -88,7 +89,9 @@ const SubMenu: FC = () => {
         </TabPanel>
         <TabPanel>2</TabPanel>
         <TabPanel>3</TabPanel>
-        <TabPanel>4</TabPanel>
+        <TabPanel>
+          <Events />
+        </TabPanel>
       </TabPanels>
     </Tabs>
   )
