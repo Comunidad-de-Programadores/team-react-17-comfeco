@@ -10,7 +10,7 @@ type EventProps = {
 
 const Event: FC<EventProps> = ({ img, description, link }) => {
   return (
-    <Box w="650px" shadow="1px 1px 10px #7c7c7c" mx="auto" mt="30px" h="max-content">
+    <Box w={["90vw", "650px"]} shadow="1px 1px 10px #7c7c7c" mx="auto" my="30px" h="max-content">
       <Image src={img} w="inherit" h="62%" />
       <Box p="15px">
         <Text textAlign="center">{description}</Text>
