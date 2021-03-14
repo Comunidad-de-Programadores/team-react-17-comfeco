@@ -3,6 +3,7 @@ import { FC, useState } from "react"
 import { HiBadgeCheck, HiUser, HiUserGroup } from "react-icons/hi"
 import { RiCalendarEventFill } from "react-icons/ri"
 import BadgesSection from "../Sections/Insignias"
+import GroupsSection from "../Sections/Grupos"
 import MyProfile from "../Sections/Mi perfil"
 
 const SubMenu: FC = () => {
@@ -90,7 +91,9 @@ const SubMenu: FC = () => {
         <TabPanel>
           <BadgesSection />
         </TabPanel>
-        <TabPanel>3</TabPanel>
+        <TabPanel>
+          <GroupsSection />
+        </TabPanel>
         <TabPanel>4</TabPanel>
       </TabPanels>
     </Tabs>
