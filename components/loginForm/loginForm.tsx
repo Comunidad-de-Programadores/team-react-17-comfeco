@@ -92,11 +92,8 @@ const LoginForm: FC = () => {
                 </InputGroup>
                 <FormErrorMessage>{errors?.password ? "Este campo es requerido" : ""}</FormErrorMessage>
               </FormControl>
-              <Stack spacing={10}>
+              <Stack spacing={5}>
                 <Stack direction={{ base: "column", sm: "row" }} align="start" justify="space-between">
-                  <Checkbox colorScheme="purple" size="sm">
-                    Mantenerme conectado
-                  </Checkbox>
                   <NextLink href="/forgot-password" passHref>
                     <Link color="blue.400" fontSize="sm">
                       ¿Olvidaste tu contraseña?
@@ -123,7 +120,7 @@ const LoginForm: FC = () => {
               <AlertDescription mr={2}>{loginError}</AlertDescription>
             </Alert>
           </Box>
-          <Text align="center" fontSize="sm">
+          <Text align="center" fontSize="sm" mt="1rem">
             Aún no tienes cuenta?
             <NextLink href="/signup" passHref>
               <Link color="blue.400" ml={1}>
