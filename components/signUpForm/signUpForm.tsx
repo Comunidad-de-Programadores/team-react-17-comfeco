@@ -13,7 +13,11 @@ import {
   Alert,
   AlertIcon,
   AlertDescription,
+  Text,
+  Link,
 } from "@chakra-ui/react"
+
+import { Link as NextLink } from "next/link"
 
 import { FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
 
@@ -44,7 +48,7 @@ const SignUpForm: FC = () => {
   }
 
   const passwordsMatch = confirmPassValue => {
-    return watch("password") == confirmPassValue
+    return watch("password") === confirmPassValue
   }
 
   const [formValues, setFormValues] = useState({
@@ -100,7 +104,7 @@ const SignUpForm: FC = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.email?.type == "pattern" ? "Correo Invalido" : "Este campo es requerido"}
+                  {errors?.email?.type === "pattern" ? "Correo Invalido" : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
@@ -122,7 +126,7 @@ const SignUpForm: FC = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.password?.type == "pattern"
+                  {errors?.password?.type === "pattern"
                     ? "La contraseña debe incluir una mayuscula, una minuscula y un numero"
                     : "Este campo es requerido"}
                 </FormErrorMessage>
@@ -143,12 +147,19 @@ const SignUpForm: FC = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.confirmPassword?.type == "validate"
+                  {errors?.confirmPassword?.type === "validate"
                     ? "Las contraseñas no coinciden"
                     : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
-              <Stack spacing={10}>
+              <Stack spacing={5}>
+                <Text fontSize="0.8rem">
+                  Al registrarte estas aceptando los{" "}
+                  <Link as={NextLink} href="/terms-of-use" color="#6b46c1">
+                    Términos y condiciones, y la Política de privacidad y protección de datos
+                  </Link>{" "}
+                  de COMFECO.
+                </Text>
                 <Button
                   bg="purple.500"
                   color="white"

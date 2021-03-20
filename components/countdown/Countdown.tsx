@@ -4,7 +4,7 @@ import { Flex, Grid, Spacer, Text } from "@chakra-ui/react"
 
 const Countdown: FC = () => {
   const getTimeLeft = () => {
-    const goalDate = new Date(2021, 2, 6).getTime()
+    const goalDate = new Date(2022, 2, 6).getTime()
 
     const msLeft = goalDate - new Date().getTime()
     const days = msLeft / (1000 * 60 * 60 * 24)
