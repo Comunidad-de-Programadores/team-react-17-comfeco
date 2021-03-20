@@ -14,10 +14,9 @@ import {
   AlertIcon,
   AlertDescription,
   Text,
-  Link,
 } from "@chakra-ui/react"
 
-import { Link as NextLink } from "next/link"
+import Link from "next/link"
 
 import { FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
 
@@ -155,9 +154,11 @@ const SignUpForm: FC = () => {
               <Stack spacing={5}>
                 <Text fontSize="0.8rem">
                   Al registrarte estas aceptando los{" "}
-                  <Link as={NextLink} href="/terms-of-use" color="#6b46c1">
-                    Términos y condiciones, y la Política de privacidad y protección de datos
-                  </Link>{" "}
+                  <span style={{ color: "#6b46c1" }}>
+                    <Link href="/terms-of-use">
+                      Términos y condiciones, y la Política de privacidad y protección de datos
+                    </Link>
+                  </span>{" "}
                   de COMFECO.
                 </Text>
                 <Button
