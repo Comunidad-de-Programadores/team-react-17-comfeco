@@ -41,7 +41,7 @@ const UserHeader: FC = () => {
       <MenuList>
         <MenuGroup title="Navigative" d={["block", null, "none"]}>
           <MenuItem d={["block", null, "none"]}>
-            <Link href="#">Inicio</Link>
+            <Link href="/">Inicio</Link>
           </MenuItem>
           <MenuItem d={["block", null, "none"]}>
             <Link href="#">Comunidades</Link>
