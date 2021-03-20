@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, useState } from "react"
 
 import NextLink from "next/link";
 
@@ -6,7 +6,6 @@ import {
   Box,
   Button,
   Checkbox,
-  Divider,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -16,32 +15,45 @@ import {
   Link,
   Stack,
   Text,
-} from "@chakra-ui/react";
+  Alert,
+  AlertIcon,
+  AlertDescription,
+} from "@chakra-ui/react"
 
-import { FaFacebook, FaGoogle, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaEnvelope, FaLock } from "react-icons/fa"
 
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
+
+import firebase from "lib/firebaseConfig"
+import displayError from "../signUpForm/displayError"
 
 type Inputs = {
-  email: string;
-  password: string;
-};
+  email: string
+  password: string
+}
 
-const LoginForm = () => {
-  const { register, handleSubmit, formState, errors } = useForm<Inputs>();
-  const onSubmit = (data) => {
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        console.log(data);
-        resolve();
-      }, 1000);
-    });
-  };
+const LoginForm: FC = () => {
+  const { register, handleSubmit, formState, errors } = useForm<Inputs>()
+  const [loginError, setLoginError] = useState(null)
+
+  const onSubmit = data => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(data.email, data.password)
+      .then(() => {
+        console.log("login")
+      })
+      .catch(error => {
+        setLoginError(displayError(error.code))
+      })
+  }
 
   return (
-    <Flex minH="100vh" align="center" justify="center" bg="gray.50">
-      <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
-        <Box rounded="xl" bg="white" boxShadow="lg" py={12} px={14}>
+    <Flex minH="80vh" align="center" justify="center">
+      <Stack w={{ sm: 350, md: 475 }} spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+        <Box rounded="xl" bg="white" boxShadow="lg" border="1px #ebebeb solid" py={5} px={[7, null, 12]}>
+          <Text fontSize="4xl">Inicia sesión</Text>
+          <br />
           <form onSubmit={handleSubmit(onSubmit)}>
             <Stack spacing={4}>
               <FormControl id="email" isInvalid={!!errors?.email}>
@@ -89,15 +101,8 @@ const LoginForm = () => {
                   {errors?.password ? "Este campo es requerido" : ""}
                 </FormErrorMessage>
               </FormControl>
-              <Stack spacing={10}>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  align="start"
-                  justify="space-between"
-                >
-                  <Checkbox colorScheme="purple" size="sm">
-                    Mantenerme conectado
-                  </Checkbox>
+              <Stack spacing={5}>
+                <Stack direction={{ base: "column", sm: "row" }} align="start" justify="space-between">
                   <NextLink href="/forgot-password" passHref>
                     <Link color="blue.400" fontSize="sm">
                       ¿Olvidaste tu contraseña?
@@ -111,35 +116,27 @@ const LoginForm = () => {
                   _hover={{
                     bg: "purple.600",
                   }}
-                  disabled={!!errors.email || !!errors.password}
                   isLoading={formState.isSubmitting}
                 >
                   Ingresar
                 </Button>
-
-                <Text align="center" fontSize="sm">
-                  Aún no tienes cuenta?
-                  <NextLink href="/signup" passHref>
-                    <Link color="blue.400" ml={1}>
-                      Registrate aquí
-                    </Link>
-                  </NextLink>
-                </Text>
-              </Stack>
-              <Divider />
-              <Stack spacing="20px">
-                <Text align="center" mt={6}>
-                  También puedes iniciar sesión con tus redes
-                </Text>
-                <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
-                  Ingresa con Facebook
-                </Button>
-                <Button colorScheme="gray" leftIcon={<FaGoogle />}>
-                  Ingresa con Google
-                </Button>
               </Stack>
             </Stack>
           </form>
+          <Box hidden={!!!loginError} mt={5} mb={5}>
+            <Alert status="error">
+              <AlertIcon />
+              <AlertDescription mr={2}>{loginError}</AlertDescription>
+            </Alert>
+          </Box>
+          <Text align="center" fontSize="sm" mt="1rem">
+            Aún no tienes cuenta?
+            <NextLink href="/signup" passHref>
+              <Link color="blue.400" ml={1}>
+                Registrate aquí
+              </Link>
+            </NextLink>
+          </Text>
         </Box>
       </Stack>
     </Flex>

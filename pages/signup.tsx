@@ -3,17 +3,22 @@ import { Box } from "@chakra-ui/react";
 
 import SignUpForm from "@/components/signUpForm";
 
-const SignUp = () => {
-  return (
-    <Box>
-      <Head>
-        <title>Registrarse | Team React #17</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import Protected from "@/components/protected"
+import { FC } from "react"
 
-      <SignUpForm />
-    </Box>
-  );
-};
+const SignUp: FC = () => {
+  return (
+    <Protected to="/" needsAuth={false}>
+      <Box>
+        <Head>
+          <title>Registrarse | Team React #17</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
+        <SignUpForm />
+      </Box>
+    </Protected>
+  )
+}
 
 export default SignUp;

@@ -1,9 +1,11 @@
-import Head from "next/head";
-import { Box } from "@chakra-ui/react";
+import Head from "next/head"
 
-import RecoverPassword from "@/components/recoverPassword";
+import { Box } from "@chakra-ui/react"
 
-const SignUp = () => {
+import RecoverPassword from "@/components/recoverPassword"
+import { FC } from "react"
+
+const SignUp: FC = () => {
   return (
     <Box>
       <Head>

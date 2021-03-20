@@ -1,16 +1,20 @@
 import Head from "next/head";
 
-const Login = () => {
+import LoginForm from "@/components/loginForm"
+import Protected from "@/components/protected"
+import { FC } from "react"
+
+const Login: FC = () => {
   return (
-    <div>
+    <Protected>
       <Head>
         <title>Login | Team React #17</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main></main>
-    </div>
-  );
-};
+    
+      <LoginForm />
+    </Protected>
+  )
+}
 
 export default Login;
