@@ -1,5 +1,5 @@
 import { FC, useContext } from "react"
-import authContext from "../../context/authContext"
+import authContext from "context/authContext"
 import Redirect from "./Redirect"
 
 type props = {

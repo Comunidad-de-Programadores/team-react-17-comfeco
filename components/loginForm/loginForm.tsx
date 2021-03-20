@@ -1,11 +1,10 @@
 import React, { FC, useState } from "react"
 
-import NextLink from "next/link";
+import NextLink from "next/link"
 
 import {
   Box,
   Button,
-  Checkbox,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -58,10 +57,9 @@ const LoginForm: FC = () => {
             <Stack spacing={4}>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaEnvelope color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaEnvelope color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
@@ -73,20 +71,14 @@ const LoginForm: FC = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors?.email?.type == "pattern"
-                    ? "Correo electronico invalido"
-                    : "Este campo es requerido"}
+                  {errors?.email?.type == "pattern" ? "Correo electronico invalido" : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl
-                id="password"
-                isInvalid={errors.password ? true : false}
-              >
+              <FormControl id="password" isInvalid={errors.password ? true : false}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaLock color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -97,9 +89,7 @@ const LoginForm: FC = () => {
                     placeholder="Contraseña"
                   />
                 </InputGroup>
-                <FormErrorMessage>
-                  {errors?.password ? "Este campo es requerido" : ""}
-                </FormErrorMessage>
+                <FormErrorMessage>{errors?.password ? "Este campo es requerido" : ""}</FormErrorMessage>
               </FormControl>
               <Stack spacing={5}>
                 <Stack direction={{ base: "column", sm: "row" }} align="start" justify="space-between">
@@ -140,7 +130,7 @@ const LoginForm: FC = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

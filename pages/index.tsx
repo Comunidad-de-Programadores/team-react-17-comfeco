@@ -1,5 +1,5 @@
-import Head from "next/head";
-import { Box } from "@chakra-ui/react";
+import Head from "next/head"
+import { Box } from "@chakra-ui/react"
 
 import Protected from "@/components/protected"
 

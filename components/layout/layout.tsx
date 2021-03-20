@@ -6,7 +6,7 @@ import Link from "next/link"
 
 import { FaFacebook, FaYoutube, FaDiscord, FaArrowLeft, FaRegBell } from "react-icons/fa"
 import { useRouter } from "next/router"
-import ComfecoLogoSVG from "../navBar/ComfecoSVG"
+import ComfecoLogoSVG from "../navBar/ComfecoSVG/ComfecoLogoSVG"
 import UserHeader from "../User/UserHeader/index"
 import SimpleLogoSVG from "../navBar/ComfecoSVG/Simple"
 import useWindowDimensions from "hooks/useWindowDimensions"

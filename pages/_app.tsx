@@ -4,9 +4,9 @@ import theme from "@/styles/theme"
 import { AuthContextProvider } from "../context/authContext"
 import { AppProps } from "next/app"
 import { FC } from "react"
-import Layout from "@/components/layout"
+import Layout from "components/layout/layout"
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
@@ -16,7 +16,7 @@ const MyApp = ({ Component, pageProps }) => {
         </Layout>
       </AuthContextProvider>
     </ChakraProvider>
-  );
-};
+  )
+}
 
-export default MyApp;
+export default MyApp

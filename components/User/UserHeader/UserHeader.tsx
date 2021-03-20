@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from "@chakra-ui/icons"
 import { Avatar, HStack, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from "@chakra-ui/react"
-import firebase from "@/lib/firebaseConfig"
+import firebase from "lib/firebaseConfig"
 import { FC, useContext } from "react"
 import { FaBars, FaDoorOpen, FaUser } from "react-icons/fa"
 import Link from "next/link"

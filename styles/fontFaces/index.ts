@@ -1,2 +1,2 @@
-export * from './LondrinaSolidFontFace';
-export * from './SourceSansProFontFace';
+export * from "./LondrinaSolidFontFace"
+export * from "./SourceSansProFontFace"

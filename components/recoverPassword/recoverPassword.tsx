@@ -1,11 +1,8 @@
 import React, { FC, useState } from "react"
 
-import NextLink from "next/link";
-
 import {
   Box,
   Button,
-  Divider,
   Flex,
   FormControl,
   Heading,
@@ -22,8 +19,8 @@ import {
 
 import { FaEnvelope } from "react-icons/fa"
 import displayError from "../signUpForm/displayError"
-import firebase from "lib/firebaseConfig";
-import { useForm } from "react-hook-form";
+import firebase from "lib/firebaseConfig"
+import { useForm } from "react-hook-form"
 
 type Inputs = {
   email: string
@@ -50,8 +47,13 @@ const RecoverPassword: FC = () => {
       <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
         <Box rounded="xl" bg="white" boxShadow="lg" py={12} border="1px #ebebeb solid" px={[7, null, 14, 14]}>
           <Stack spacing={4}>
-            <Heading as="h1" size="lg">Reasignar contraseña</Heading>
-            <Text size="md" mb={4}>Te enviaremos un correo electrónico con un enlace privado para que reasignes tu contraseña. Este enlace será válido por una hora.</Text>
+            <Heading as="h1" size="lg">
+              Reasignar contraseña
+            </Heading>
+            <Text size="md" mb={4}>
+              Te enviaremos un correo electrónico con un enlace privado para que reasignes tu contraseña. Este enlace
+              será válido por una hora.
+            </Text>
           </Stack>
           <Stack spacing={4}>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -101,7 +103,7 @@ const RecoverPassword: FC = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default RecoverPassword;
+export default RecoverPassword

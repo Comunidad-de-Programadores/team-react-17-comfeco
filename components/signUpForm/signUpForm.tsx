@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState } from "react"
 
 import {
   Box,
@@ -14,7 +14,7 @@ import {
   AlertIcon,
   AlertDescription,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
 import Link from "next/link"
 
@@ -58,10 +58,9 @@ const SignUpForm: FC = () => {
             <Stack spacing={4}>
               <FormControl id="user" isInvalid={!!errors?.nick}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaUserAlt color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaUserAlt color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     name="nick"
@@ -69,16 +68,13 @@ const SignUpForm: FC = () => {
                     ref={register({ required: true })}
                   />
                 </InputGroup>
-                <FormErrorMessage>
-                  {errors?.nick ? "Este campo es requerido" : ""}
-                </FormErrorMessage>
+                <FormErrorMessage>{errors?.nick ? "Este campo es requerido" : ""}</FormErrorMessage>
               </FormControl>
               <FormControl id="email" isInvalid={!!errors?.email}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaEnvelope color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaEnvelope color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     name="email"
@@ -95,10 +91,9 @@ const SignUpForm: FC = () => {
               </FormControl>
               <FormControl id="password" isInvalid={!!errors?.password}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaLock color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -116,15 +111,11 @@ const SignUpForm: FC = () => {
                     : "Este campo es requerido"}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl
-                id="confirmPassword"
-                isInvalid={!!errors?.confirmPassword}
-              >
+              <FormControl id="confirmPassword" isInvalid={!!errors?.confirmPassword}>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none">
+                    <FaLock color="gray.300" />
+                  </InputLeftElement>
                   <Input
                     focusBorderColor="purple.500"
                     type="password"
@@ -172,7 +163,7 @@ const SignUpForm: FC = () => {
         </Box>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default SignUpForm;
+export default SignUpForm

@@ -15,7 +15,7 @@ const SignUp: FC = () => {
 
       <RecoverPassword />
     </Box>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp
