@@ -26,7 +26,7 @@ const Layout: FC = ({ children }) => {
           flexDirection={["column", "row"]}
           py={["10px", null, "0px"]}
         >
-          {router.pathname === "/terms-of-use" ? null : widthScreen > 767 ? (
+          {widthScreen > 767 ? (
             <>
               {isLogged ? (
                 <>
@@ -77,6 +77,24 @@ const Layout: FC = ({ children }) => {
                   <Spacer />
                   <UserHeader />
                 </>
+              ) : router.pathname === "/forgot-password" || router.pathname === "/signup" ? (
+                <>
+                  <ComfecoLogoSVG />
+                  <Spacer />
+                  <Link href="/login">
+                    <Button
+                      mt="15px"
+                      leftIcon={<FaArrowLeft />}
+                      color="white"
+                      bg="gray.500"
+                      _hover={{
+                        bg: "gray.600",
+                      }}
+                    >
+                      Iniciar sesion
+                    </Button>
+                  </Link>
+                </>
               ) : (
                 <>
                   <ComfecoLogoSVG />
@@ -87,16 +105,12 @@ const Layout: FC = ({ children }) => {
           )}
         </HStack>
       </Flex>
-      {router.pathname === "/terms-of-use" ? null : (
-        <Divider h="5px" mb="-1px" bgGradient="linear(to-r, #8B1B83, #FFB703)" opacity="1" />
-      )}
+      <Divider h="5px" mb="-1px" bgGradient="linear(to-r, #8B1B83, #FFB703)" opacity="1" />
       <Box as="main" marginBottom="100px">
         {children}
       </Box>
 
-      {router.pathname === "/terms-of-use" ? (
-        <Box as="footer" bg="black" w="100%" p={4} marginTop="100px" position="fixed" bottom="0">
-          {" "}
+      <Box as="footer" bg="black" w="100%" p={4} marginTop="100px" bottom="0">
           <Flex justify="space-between" align="center">
             <SimpleLogoSVG />
             <Text fontSize="sm" color="white">
@@ -122,34 +136,6 @@ const Layout: FC = ({ children }) => {
             </Stack>
           </Flex>
         </Box>
-      ) : (
-        <Box as="footer" bg="black" w="100%" p={4} marginTop="100px" bottom="0">
-          <Flex justify="space-between" align="center">
-            <SimpleLogoSVG />
-            <Text fontSize="sm" color="white">
-              Copyright ©2021 Developed by Team React #17
-            </Text>
-            <Stack direction="row" spacing={6}>
-              <Link href="https://www.facebook.com/groups/2637132626546045" passHref>
-                <a>
-                  <FaFacebook color="white" size={24} />
-                </a>
-              </Link>
-
-              <Link href="https://discord.gg/5Bb5yvzNPr" passHref>
-                <a>
-                  <FaDiscord color="white" size={24} />
-                </a>
-              </Link>
-              <Link href="https://www.youtube.com/channel/UC0oi8uH1vxDcyt7b_3iByew" passHref>
-                <a>
-                  <FaYoutube color="white" size={24} />
-                </a>
-              </Link>
-            </Stack>
-          </Flex>
-        </Box>
-      )}
     </>
   )
 }

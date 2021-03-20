@@ -5,7 +5,7 @@ import { Center, Heading, Text } from "@chakra-ui/react"
 
 const TermsAndConditions: FC = () => {
   return (
-    <Center flexDirection="column" mt="2rem">
+    <Center flexDirection="column" mt="2rem" mb="50vh">
       <Head>
         <title>Terminos y condiciones | Team React #17</title>
         <link rel="icon" href="/favicon.ico" />

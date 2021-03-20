@@ -16,6 +16,8 @@ import {
   Text,
 } from "@chakra-ui/react"
 
+import { Link as ChakraLink } from "@chakra-ui/react"
+
 import Link from "next/link"
 
 import { FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa"
@@ -134,9 +136,9 @@ const SignUpForm: FC = () => {
                 <Text fontSize="0.8rem">
                   Al registrarte estas aceptando los{" "}
                   <span style={{ color: "#6b46c1" }}>
-                    <Link href="/terms-of-use">
+                    <ChakraLink href="/terms-of-use" target="_blank">
                       Términos y condiciones, y la Política de privacidad y protección de datos
-                    </Link>
+                    </ChakraLink>
                   </span>{" "}
                   de COMFECO.
                 </Text>
